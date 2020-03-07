@@ -10,8 +10,9 @@ $(() => {
   const iconDesign = document.querySelector('.navIcon.design')
   const iconContact = document.querySelector('.navIcon.contact')
 
-  const visualisationSlides = document.getElementById('visualisationSlides')
-  const designSlides = document.getElementById('designSlides')
+  const $visualisationSlides = $('#visualisationSlides')
+  const $eventsSlides = $('#eventsSlides')
+  const $designSlides = $('#designSlides')
 
   const visualisationText = document.getElementById('visualisationText')
   const designText = document.getElementById('designText')
@@ -26,8 +27,9 @@ $(() => {
   const textBoxMaxWidth = 75
   const textBoxPadding = 5
   const textBox = document.querySelector('.textBox')
-  const visualisationTextBox = document.querySelector('.visualisationTextBox')
-  const designTextBox = document.querySelector('.designTextBox')
+  const $visualisationTextBox = $('#visualisationTextBox')
+  const $eventsTextBox = $('#eventsTextBox')
+  const $designTextBox = $('#designTextBox')
 
   let textBoxWidth = undefined
   let textBoxXPosition = undefined
@@ -38,20 +40,16 @@ $(() => {
       textBoxWidth = (textBoxMinWidth + Math.floor(Math.random() * (textBoxMaxWidth-textBoxMinWidth))+1)
       textBoxXPosition = (textBoxPadding + Math.floor(Math.random() * ((100-textBoxWidth-textBoxPadding)-textBoxPadding))+ 1)
       textBoxYPosition = (textBoxPadding + Math.floor(Math.random() * (30-textBoxPadding))+ 1)
-      visualisationTextBox.style.width = `${textBoxWidth}vw`
-      visualisationTextBox.style.left = `${textBoxXPosition}vw`
-      visualisationTextBox.style.bottom = `${textBoxYPosition}vh`
+      $visualisationTextBox.css({width:`${textBoxWidth}vw`, left: `${textBoxXPosition}vw`,bottom: `${textBoxYPosition}vh`})
       textBoxWidth = (textBoxMinWidth + Math.floor(Math.random() * (textBoxMaxWidth-textBoxMinWidth))+1)
       textBoxXPosition = (textBoxPadding + Math.floor(Math.random() * ((100-textBoxWidth-textBoxPadding)-textBoxPadding))+ 1)
       textBoxYPosition = (textBoxPadding + Math.floor(Math.random() * (40-textBoxPadding))+ 1)
-      designTextBox.style.width = `${textBoxWidth}vw`
-      designTextBox.style.left = `${textBoxXPosition}vw`
-      designTextBox.style.bottom = `${textBoxYPosition}vh`
+      $designTextBox.css({width:`${textBoxWidth}vw`, left: `${textBoxXPosition}vw`,bottom: `${textBoxYPosition}vh`})
     }
     // Hide Textbox after X secs
     // setTimeout(function() {
-    //   visualisationTextBox.classList.add('hidden')
-    //   designTextBox.classList.add('hidden')
+    //   $visualisationTextBox.addClass('hidden')
+    //   $designTextBox.addClass('hidden')
     // }, 6000)
   }
 
@@ -61,12 +59,16 @@ $(() => {
 
   textBoxPosition()
 
-  $('.visualisationTextBox').mousedown(function() {
-    visualisationTextBox.classList.add('hidden')
+  $visualisationTextBox.mousedown(function() {
+    $visualisationTextBox.addClass('hidden')
   })
 
-  $('.designTextBox').mousedown(function() {
-    designTextBox.classList.add('hidden')
+  $eventsTextBox.mousedown(function() {
+    $eventsTextBox.addClass('hidden')
+  })
+
+  $designTextBox.mousedown(function() {
+    $designTextBox.addClass('hidden')
   })
 
 
@@ -95,11 +97,12 @@ $(() => {
 
 
 
-
   navIcons.forEach(icon => {
     icon.addEventListener('mouseover', (e) => {
       if ($(e.target).hasClass('visualisation')) {
         $(e.target).attr('src', './images/icons/visualisationThinWhtByellow.png')
+      } else if ($(e.target).hasClass('events')) {
+        $(e.target).attr('src', './images/icons/eventsThinWhtB.png')
       } else if ($(e.target).hasClass('design')) {
         $(e.target).attr('src', './images/icons/designThinWhtB2.png')
       } else if ($(e.target).hasClass('contact')) {
@@ -110,31 +113,48 @@ $(() => {
     icon.addEventListener('mousedown', (e) => {
       resetNavIcons()
       textBoxPosition()
+      resetMenu()
       if ($(e.target).hasClass('visualisation')) {
-        resetMenu()
-        visualisationSlides.className = 'visible'
-        visualisationTextBox.className = 'visualisationTextBox'
-        designSlides.className ='hidden'
-        designTextBox.classList.add('hidden')
+        $visualisationSlides.attr('class','visible')
+        $visualisationTextBox.removeClass('hidden')
+        $eventsSlides.attr('class','hidden')
+        $eventsTextBox.addClass('hidden')
+        $designSlides.attr('class','hidden')
+        $designTextBox.addClass('hidden')
         contactPage.classList.add('hidden')
         siteVersion.className = 'hidden'
         $('.navIcon.visualisation').addClass('current')
+
+      } else if ($(e.target).hasClass('events')) {
+        $visualisationSlides.attr('class','hidden')
+        $visualisationTextBox.addClass('hidden')
+        $eventsSlides.attr('class','visible')
+        $eventsTextBox.removeClass('hidden')
+        $designSlides.attr('class','hidden')
+        $designTextBox.addClass('hidden')
+        contactPage.classList.add('hidden')
+        siteVersion.className = 'hidden'
+        $('.navIcon.events').addClass('current')
+
       } else if ($(e.target).hasClass('design')) {
-        resetMenu()
-        visualisationSlides.className ='hidden'
-        visualisationTextBox.classList.add('hidden')
-        designSlides.className = 'visible'
-        designTextBox.className ='designTextBox'
+        $visualisationSlides.attr('class','hidden')
+        $visualisationTextBox.addClass('hidden')
+        $eventsSlides.attr('class','hidden')
+        $eventsTextBox.addClass('hidden')
+        $designSlides.attr('class','visible')
+        $designTextBox.removeClass('hidden')
         contactPage.classList.add('hidden')
         siteVersion.className = 'hidden'
         $('.navIcon.design').addClass('current')
+
       } else if ($(e.target).hasClass('contact')) {
-        resetMenu()
         document.querySelector('.leftBox').classList.add('contact')
-        visualisationTextBox.classList.add('hidden')
-        designTextBox.classList.add('hidden')
-        visualisationSlides.className ='hidden'
-        designSlides.className ='hidden'
+        $visualisationSlides.attr('class','hidden')
+        $visualisationTextBox.addClass('hidden')
+        $eventsSlides.attr('class','hidden')
+        $eventsTextBox.addClass('hidden')
+        $designSlides.attr('class','hidden')
+        $designTextBox.addClass('hidden')
         contactPage.className = 'visible'
         siteVersion.className = ''
         $('.navIcon.contact').addClass('current')
@@ -158,10 +178,12 @@ $(() => {
 
   function setNavIcons() {
     $('.navIcon.visualisation').attr('src', './images/icons/visualisationThinWhtA.png')
+    $('.navIcon.events').attr('src', './images/icons/eventsThinWhtA.png')
     $('.navIcon.design').attr('src', './images/icons/designThinWhtA.png')
     $('.navIcon.contact').attr('src', './images/icons/contactThinWhtA.png')
 
     $('.navIcon.visualisation.current').attr('src', './images/icons/visualisationThinWhtByellow.png')
+    $('.navIcon.events.current').attr('src', './images/icons/eventsThinWhtB.png')
     $('.navIcon.design.current').attr('src', './images/icons/designThinWhtB2.png')
     $('.navIcon.contact.current').attr('src', './images/icons/contactThinWhtB.png')
   }
