@@ -1,0 +1,149 @@
+$mediaWidth1: 800px;
+$mediaWidth2: 600px;
+
+// Media width < $mediaWidth2
+nav {
+  background-color: $colorNavBackground;
+  font-size: $navFontSize;
+  font-weight: 100;
+  color: white;
+
+  .leftBox {
+    opacity: 1;
+    background-color: $colorNavBackgroundSolid;
+    height: 54px;
+    width: 100vw;
+    padding: 10px 15px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      .navLogo {
+          max-width: 166px;
+          max-height: 34px;
+          width: 100%;
+          height: auto;
+        }
+    }
+    .dotMenu {
+      z-index: 11;
+      max-height: 34px;
+      width: auto;
+      height: 100%;
+      border: $devBorder solid orange;
+    }
+  }
+
+  .rightBox {
+    opacity: 0;
+    background-color: $colorNavBackgroundSolid;
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    @include flexColumnCenter();
+    padding: 10px 10 10px 20px;
+    display: none;
+    .navIcon {
+      display: flex;
+      margin-top: 5px;
+      margin-right: 10px;
+      width: $navIconWidth;
+      width: 50px;
+      border: $devBorder solid orange;
+    }
+    &.visible {
+      opacity: 1;
+      display: flex;
+    }
+  }
+
+
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0.25;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInFromRight {
+    0% {
+      // transform: translateX(+100%);
+      opacity: 0;
+    }
+    25% {
+      // transform: translateX(+100%);
+      opacity: 0;
+    }
+    100% {
+      // transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+
+  // @media (min-width: $mediaWidth1) {
+  //   width: 50%;
+  // }
+
+  @media (min-width: $mediaWidth2) {
+    .leftBox {
+      will-change: opacity;
+      opacity: 1;
+      background-color: $colorNavBackground;
+      will-change: position;
+      position: fixed;
+      animation: 1.5s ease-out 0s 1 slideInFromTop;
+      z-index: 10;
+      top: 0px;
+      left: 20px;
+      height: 12.5vh;
+      min-height: 75px;
+      width: 250px;
+      padding: 10px 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      a {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        .navLogo {
+          max-width: none;
+          max-height: none;
+          width: 100%;
+          }
+      }
+      .dotMenu {
+        display: none;
+      }
+    }
+    .rightBox {
+      opacity: 1;
+      background-color: $colorNavBackground;
+      position: fixed;
+      will-change: transform;
+      animation: 2.5s ease-out 0s 1 slideInFromRight;
+      z-index: 10;
+      top: 40px;
+      right: 0;
+      @include flexRowEnd();
+      padding: 15px 0px 15px 15px;
+      .navIcon {
+        display: flex;
+        margin-top: 0;
+        margin-right: 20px;
+        width: $navIconWidth;
+        border: $devBorder solid orange;
+      }
+    }
+  }
+
+}

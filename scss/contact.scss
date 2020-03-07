@@ -1,0 +1,22 @@
+
+
+#contact {
+  color: white;
+  font-size: 20pt;
+  margin: 10%;
+  max-width: 750px;
+  text-align: justify;
+  z-index: 5;
+  @media (min-width: $mediaWidth2) {
+    font-size: 25pt;
+  }
+  .contactDetails {
+    @include flexColumnCenterLeft;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+
+}

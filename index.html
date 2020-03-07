@@ -5,6 +5,16 @@
     <meta content='width=device-width, initial-scale=1' name='viewport' />
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' charset='utf-8'></script>
     <script src='./scripts/jquery-3.4.1.min.js' charset='utf-8'></script>
+    <!-- Global site tag (gtag.js) - Google Ads: 664921084 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-664921084"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-664921084');
+    </script>
+    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158798570-1">
     </script>
@@ -68,11 +78,9 @@
           <img class='slide contained' src='./images/design/knife-drawing2.jpg' alt=''>
           <img class='slide contained' src='./images/design/foreshore_bridge-render.jpg' alt=''>
           <img class='slide' src='./images/design/foreshore_bridge-photo.jpg' alt=''>
-
           <img class='slide' src='./images/design/ciscoLive2015.jpg' alt=''>
           <img class='slide' src='./images/design/CiscoCollaboration-RenderPhoto.jpg' alt=''>
           <img class='slide' src='./images/design/airFrance.jpg' alt=''>
-
           <img class='slide contained' src='./images/design/chixSeats.jpg' alt=''>
           <img class='slide contained' src='./images/design/BhungaElevation.jpg' alt=''>
           <img class='slide' src='./images/design/BhungaPhoto.jpg' alt=''>
@@ -107,6 +115,23 @@
         </footer>
 
       </div>
+
+      <script>
+        window.addEventListener('load', function(){
+        jQuery('.visualisation').click(function(){
+        gtag('event', 'click', {
+          'event_category' : 'button',
+          'event_label' : 'visualisation'
+        });
+        });
+        jQuery('.design').click(function(){
+        gtag('event', 'click', {
+          'event_category' : 'button',
+          'event_label' : 'design'
+        });
+        });
+        });
+      </script>
 
 
 
