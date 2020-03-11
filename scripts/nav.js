@@ -10,9 +10,14 @@ $(() => {
   const iconDesign = document.querySelector('.navIcon.design')
   const iconContact = document.querySelector('.navIcon.contact')
 
+
   const $visualisationSlides = $('#visualisationSlides')
   const $eventsSlides = $('#eventsSlides')
   const $designSlides = $('#designSlides')
+  const $printSlides = $('#printSlides')
+  const $contactPage = $('#contact')
+  // const siteVersion = document.getElementById('siteVersion')
+
 
   const visualisationText = document.getElementById('visualisationText')
   const designText = document.getElementById('designText')
@@ -20,8 +25,6 @@ $(() => {
   const slideSets = document.querySelectorAll('.slides')
   const currentNav = document.querySelector('.current')
 
-  const contactPage = document.getElementById('contact')
-  const siteVersion = document.getElementById('siteVersion')
 
   const textBoxMinWidth = 45
   const textBoxMaxWidth = 75
@@ -30,6 +33,7 @@ $(() => {
   const $visualisationTextBox = $('#visualisationTextBox')
   const $eventsTextBox = $('#eventsTextBox')
   const $designTextBox = $('#designTextBox')
+  const $printTextBox = $('#printTextBox')
 
   let textBoxWidth = undefined
   let textBoxXPosition = undefined
@@ -72,41 +76,70 @@ $(() => {
   })
 
 
+  $printTextBox.mousedown(function() {
+    $printTextBox.addClass('hidden')
+  })
+
+
   $('.dotMenu').mousedown(function() {
-    $(this).attr('src', './images/icons/squareMenuB.png')
-    hideMenu()
-  })
-
-
-
-  $('.dotMenu').mouseout(function() {
+    toggleMenu()
     if (iconMenu.hasClass('visible')) {
+      $(this).attr('src', './images/icons/box-open.png')
     } else {
-      $(this).attr('src', './images/icons/squareMenuAA.png')
+      $(this).attr('src', './images/icons/box-closed.png')
     }
+
   })
 
-  function hideMenu() {
+
+
+  // $('.dotMenu').mouseout(function() {
+  //   if (iconMenu.hasClass('visible')) {
+  //   } else {
+  //     $(this).attr('src', './images/icons/box-closed.png')
+  //   }
+  // })
+
+  function toggleMenu() {
     iconMenu.toggleClass('visible')
   }
 
   function resetMenu() {
-    hideMenu()
-    $('.dotMenu').attr('src', './images/icons/squareMenuAA.png')
+    toggleMenu()
+    $('.dotMenu').attr('src', './images/icons/box-closed.png')
+  }
+
+  function hideSections(){
+
+    $visualisationSlides.attr('class','slideSet hidden')
+    $eventsSlides.attr('class','slideSet hidden')
+    $designSlides.attr('class','slideSet hidden')
+    $printSlides.attr('class','slideSet hidden')
+
+    $visualisationTextBox.addClass('hidden')
+    $eventsTextBox.addClass('hidden')
+    $designTextBox.addClass('hidden')
+    $printTextBox.addClass('hidden')
+    $contactPage.attr('class','hidden')
   }
 
 
 
   navIcons.forEach(icon => {
+
     icon.addEventListener('mouseover', (e) => {
-      if ($(e.target).hasClass('visualisation')) {
-        $(e.target).attr('src', './images/icons/visualisationThinWhtByellow.png')
-      } else if ($(e.target).hasClass('events')) {
-        $(e.target).attr('src', './images/icons/eventsThinWhtB.png')
-      } else if ($(e.target).hasClass('design')) {
-        $(e.target).attr('src', './images/icons/designThinWhtB2.png')
-      } else if ($(e.target).hasClass('contact')) {
-        $(e.target).attr('src', './images/icons/contactThinWhtB.png')
+      if (!$(e.target).hasClass('current')) {
+        if ($(e.target).hasClass('visualisation')) {
+          $(e.target).attr('src', './images/icons/visualisationC.png')
+        } else if ($(e.target).hasClass('events')) {
+          $(e.target).attr('src', './images/icons/eventsC.png')
+        } else if ($(e.target).hasClass('design')) {
+          $(e.target).attr('src', './images/icons/designC.png')
+        } else if ($(e.target).hasClass('print')) {
+          $(e.target).attr('src', './images/icons/printC.png')
+        } else if ($(e.target).hasClass('contact')) {
+          $(e.target).attr('src', './images/icons/contactC.png')
+        }
       }
     })
 
@@ -114,49 +147,31 @@ $(() => {
       resetNavIcons()
       textBoxPosition()
       resetMenu()
+      hideSections()
       if ($(e.target).hasClass('visualisation')) {
-        $visualisationSlides.attr('class','visible')
+        $visualisationSlides.attr('class','slideSet visible')
         $visualisationTextBox.removeClass('hidden')
-        $eventsSlides.attr('class','hidden')
-        $eventsTextBox.addClass('hidden')
-        $designSlides.attr('class','hidden')
-        $designTextBox.addClass('hidden')
-        contactPage.classList.add('hidden')
-        siteVersion.className = 'hidden'
         $('.navIcon.visualisation').addClass('current')
 
       } else if ($(e.target).hasClass('events')) {
-        $visualisationSlides.attr('class','hidden')
-        $visualisationTextBox.addClass('hidden')
-        $eventsSlides.attr('class','visible')
+        $eventsSlides.attr('class','slideSet visible')
         $eventsTextBox.removeClass('hidden')
-        $designSlides.attr('class','hidden')
-        $designTextBox.addClass('hidden')
-        contactPage.classList.add('hidden')
-        siteVersion.className = 'hidden'
         $('.navIcon.events').addClass('current')
 
       } else if ($(e.target).hasClass('design')) {
-        $visualisationSlides.attr('class','hidden')
-        $visualisationTextBox.addClass('hidden')
-        $eventsSlides.attr('class','hidden')
-        $eventsTextBox.addClass('hidden')
-        $designSlides.attr('class','visible')
+        $designSlides.attr('class','slideSet visible')
         $designTextBox.removeClass('hidden')
-        contactPage.classList.add('hidden')
-        siteVersion.className = 'hidden'
         $('.navIcon.design').addClass('current')
+
+      } else if ($(e.target).hasClass('print')) {
+        $printSlides.attr('class','slideSet visible')
+        $printTextBox.removeClass('hidden')
+        $('.navIcon.print').addClass('current')
+
 
       } else if ($(e.target).hasClass('contact')) {
         document.querySelector('.leftBox').classList.add('contact')
-        $visualisationSlides.attr('class','hidden')
-        $visualisationTextBox.addClass('hidden')
-        $eventsSlides.attr('class','hidden')
-        $eventsTextBox.addClass('hidden')
-        $designSlides.attr('class','hidden')
-        $designTextBox.addClass('hidden')
-        contactPage.className = 'visible'
-        siteVersion.className = ''
+        $contactPage.removeClass('hidden')
         $('.navIcon.contact').addClass('current')
       }
       setNavIcons()
@@ -177,15 +192,17 @@ $(() => {
   }
 
   function setNavIcons() {
-    $('.navIcon.visualisation').attr('src', './images/icons/visualisationThinWhtA.png')
-    $('.navIcon.events').attr('src', './images/icons/eventsThinWhtA.png')
-    $('.navIcon.design').attr('src', './images/icons/designThinWhtA.png')
-    $('.navIcon.contact').attr('src', './images/icons/contactThinWhtA.png')
+    $('.navIcon.visualisation').attr('src', './images/icons/visualisationA.png')
+    $('.navIcon.events').attr('src', './images/icons/eventsA.png')
+    $('.navIcon.design').attr('src', './images/icons/designA.png')
+    $('.navIcon.print').attr('src', './images/icons/printA.png')
+    $('.navIcon.contact').attr('src', './images/icons/contactA.png')
 
-    $('.navIcon.visualisation.current').attr('src', './images/icons/visualisationThinWhtByellow.png')
-    $('.navIcon.events.current').attr('src', './images/icons/eventsThinWhtB.png')
-    $('.navIcon.design.current').attr('src', './images/icons/designThinWhtB2.png')
-    $('.navIcon.contact.current').attr('src', './images/icons/contactThinWhtB.png')
+    $('.navIcon.visualisation.current').attr('src', './images/icons/visualisationC.png')
+    $('.navIcon.events.current').attr('src', './images/icons/eventsC.png')
+    $('.navIcon.design.current').attr('src', './images/icons/designC.png')
+    $('.navIcon.print.current').attr('src', './images/icons/printC.png')
+    $('.navIcon.contact.current').attr('src', './images/icons/contactC.png')
   }
 
 

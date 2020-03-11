@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const visualisationSlides = document.getElementById('visualisationSlides').getElementsByClassName('slide')
   const eventsSlides = document.getElementById('eventsSlides').getElementsByClassName('slide')
   const designSlides = document.getElementById('designSlides').getElementsByClassName('slide')
+  const printSlides = document.getElementById('printSlides').getElementsByClassName('slide')
 
 
   function visualisationSlideShow(i){
@@ -44,17 +45,31 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 5000) // show each slide for 5 secs
   }
 
+  function printSlideShow(i){
+    printSlides[i].classList.remove('show')
+    if (i === printSlides.length -1) {
+      printSlides[0].className = 'slide show contained'
+      i = - 1
+    }
+    if (i > -1 ) {printSlides[i+1].classList.add('show')}
+
+    setTimeout(function() {
+      printSlideShow(++i % printSlides.length)
+    }, 5000) // show each slide for 5 secs
+  }
 
   setTimeout(function() {
     visualisationSlides[0].classList.add('show')
     eventsSlides[0].classList.add('show')
     designSlides[0].classList.add('show')
+    printSlides[0].classList.add('show')
   }, 1) // style first slide on page load
 
   setTimeout(function() {
     visualisationSlideShow(0)
     eventsSlideShow(0)
     designSlideShow(0)
+    printSlideShow(0)
   }, 6000) // show first slide for 5 secs
 
 

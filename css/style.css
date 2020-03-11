@@ -64,7 +64,6 @@ nav .leftBox {
   height: 54px;
   width: 100vw;
   padding: 10px 15px;
-  padding-right: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -97,13 +96,12 @@ nav .rightBox {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 10 10px 20px;
+  padding: 0 15px 15px 15px;
   display: none;
 }
 nav .rightBox .navIcon {
   display: flex;
-  margin-top: 5px;
-  margin-right: 10px;
+  margin-top: 10px;
   width: 50px;
   width: 50px;
   border: 0px solid orange;
@@ -133,7 +131,7 @@ nav .rightBox.visible {
     opacity: 1;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   nav .leftBox {
     will-change: opacity;
     opacity: 1;
@@ -172,7 +170,7 @@ nav .rightBox.visible {
     will-change: transform;
     animation: 2.5s ease-out 0s 1 slideInFromRight;
     z-index: 10;
-    top: 40px;
+    top: 20px;
     right: 0;
     display: flex;
     flex-direction: row;
@@ -354,28 +352,7 @@ nav .rightBox.visible {
   display: inline-block;
   padding: 10%;
 }
-#visualisationSlides.visible img.slide,
-#eventsSlides.visible img.slide,
-#designSlides.visible img.slide {
-  object-fit: cover;
-}
-#visualisationSlides.visible img.slide.contained,
-#eventsSlides.visible img.slide.contained,
-#designSlides.visible img.slide.contained {
-  object-fit: cover;
-  position: absolute;
-}
-@media (min-width: 600px) {
-  #visualisationSlides.visible img.slide.contained,
-#eventsSlides.visible img.slide.contained,
-#designSlides.visible img.slide.contained {
-    object-fit: contain;
-  }
-}
-
-#visualisationSlides.visible,
-#eventsSlides.visible,
-#designSlides.visible {
+.slideSet.visible {
   width: 100%;
   height: 100%;
   border: 0px solid blue;
@@ -384,9 +361,8 @@ nav .rightBox.visible {
   align-items: center;
   position: relative;
 }
-#visualisationSlides.visible img.slide,
-#eventsSlides.visible img.slide,
-#designSlides.visible img.slide {
+.slideSet.visible img.slide {
+  object-fit: cover;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -394,9 +370,16 @@ nav .rightBox.visible {
   -webkit-transition: opacity 3s;
   transition: opacity 3s;
 }
-#visualisationSlides.visible img.slide.p,
-#eventsSlides.visible img.slide.p,
-#designSlides.visible img.slide.p {
+.slideSet.visible img.slide.contained {
+  object-fit: cover;
+  position: absolute;
+}
+@media (min-width: 700px) {
+  .slideSet.visible img.slide.contained {
+    object-fit: contain;
+  }
+}
+.slideSet.visible img.slide.p {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -404,14 +387,10 @@ nav .rightBox.visible {
   -webkit-transition: opacity 3s;
   transition: opacity 3s;
 }
-#visualisationSlides.visible img.slide.show,
-#eventsSlides.visible img.slide.show,
-#designSlides.visible img.slide.show {
+.slideSet.visible img.slide.show {
   opacity: 1;
 }
-#visualisationSlides.visible .slideShowButton,
-#eventsSlides.visible .slideShowButton,
-#designSlides.visible .slideShowButton {
+.slideSet.visible .slideShowButton {
   width: 40px;
   height: 40px;
   background: rgba(68, 68, 68, 0.85);
@@ -420,9 +399,7 @@ nav .rightBox.visible {
   right: 10px;
   border: 0px solid orange;
 }
-#visualisationSlides.visible .playPause,
-#eventsSlides.visible .playPause,
-#designSlides.visible .playPause {
+.slideSet.visible .playPause {
   width: 90%;
   position: absolute;
   top: 50%;
@@ -475,7 +452,7 @@ nav .rightBox.visible {
   -webkit-transition: opacity 3s;
   transition: opacity 3s;
 }
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   #slideShow a img.slide.p {
     object-fit: contain;
   }
@@ -589,7 +566,7 @@ nav .rightBox.visible {
   text-align: justify;
   z-index: 5;
 }
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   #contact {
     font-size: 25pt;
   }
@@ -625,7 +602,7 @@ footer #siteVersion a {
 footer #siteVersion.hidden {
   display: none;
 }
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   footer #siteVersion {
     display: flex;
   }
