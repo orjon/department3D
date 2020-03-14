@@ -27,7 +27,7 @@ nav {
           height: auto;
         }
     }
-    .dotMenu {
+    .boxMenu {
       z-index: 11;
       max-height: 34px;
       width: auto;
@@ -43,14 +43,15 @@ nav {
     z-index: 10;
     right: 0;
     @include flexColumnCenter();
-    padding: 0 15px 15px 15px;
+    padding: 0 10px 10px 10px;
     display: none;
     .navIcon {
-      display: flex;
+      border: $devBorder solid green;
+      @include flexColumnCenter();
       margin-top: 10px;
       width: $navIconWidth;
-      width: 50px;
       border: $devBorder solid orange;
+
     }
     &.visible {
       opacity: 1;
@@ -118,7 +119,7 @@ nav {
           width: 100%;
           }
       }
-      .dotMenu {
+      .boxMenu {
         display: none;
       }
     }
@@ -132,14 +133,17 @@ nav {
       top: 20px;
       right: 0;
       @include flexRowEnd();
-      padding: 15px 0px 15px 15px;
+      padding: 10px 0px 10px 10px;
       .navIcon {
+        border: $devBorder solid lime;
         display: flex;
+        flex-direction: column;
         margin-top: 0;
         margin-right: 20px;
         width: $navIconWidth;
         border: $devBorder solid orange;
       }
+      
     }
   }
 

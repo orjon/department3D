@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
 $(() => {
-
   // const currentPage = document.querySelector('.navText').innerHTML
   const navIcons = document.querySelectorAll('.navIcon')
-  const dotMenu = document.querySelector('.dotMenu')
+  const $boxMenu = $('.boxMenu')
   const iconMenu = $('.rightBox')
 
   const iconVisualisation = document.querySelector('.navIcon.visualisation')
@@ -29,7 +28,7 @@ $(() => {
   const textBoxMinWidth = 45
   const textBoxMaxWidth = 75
   const textBoxPadding = 5
-  const textBox = document.querySelector('.textBox')
+  const $textBoxes = $('.textBox')
   const $visualisationTextBox = $('#visualisationTextBox')
   const $eventsTextBox = $('#eventsTextBox')
   const $designTextBox = $('#designTextBox')
@@ -63,25 +62,53 @@ $(() => {
 
   textBoxPosition()
 
+
   $visualisationTextBox.mousedown(function() {
     $visualisationTextBox.addClass('hidden')
   })
-
   $eventsTextBox.mousedown(function() {
     $eventsTextBox.addClass('hidden')
   })
-
   $designTextBox.mousedown(function() {
     $designTextBox.addClass('hidden')
   })
-
-
   $printTextBox.mousedown(function() {
     $printTextBox.addClass('hidden')
   })
 
 
-  $('.dotMenu').mousedown(function() {
+  $boxMenu.mousedown(function() {
+    toggleMenu()
+  })
+
+
+  $boxMenu.mouseover(function() {
+    if ($boxMenu.hasClass('closed')) {
+      $boxMenu.attr('src', './images/icons/box-open.png')
+    } 
+  })
+
+  $boxMenu.mouseout(function() {
+    if ($boxMenu.hasClass('closed')) {
+      $boxMenu.attr('src', './images/icons/box-closed.png') 
+    }
+  })
+
+
+  function toggleMenu() {
+    iconMenu.toggleClass('visible')
+    if (iconMenu.hasClass('visible')) {
+      $(this).attr('src', './images/icons/box-open.png')
+      $boxMenu.attr('src', './images/icons/box-open.png')
+      $boxMenu.removeClass('closed')
+    } else {
+      $(this).attr('src', './images/icons/box-closed.png')
+      $boxMenu.attr('src', './images/icons/box-closed.png')
+      $boxMenu.addClass('closed')
+    }
+  }
+
+  function resetMenu() {
     toggleMenu()
     if (iconMenu.hasClass('visible')) {
       $(this).attr('src', './images/icons/box-open.png')
@@ -89,24 +116,6 @@ $(() => {
       $(this).attr('src', './images/icons/box-closed.png')
     }
 
-  })
-
-
-
-  // $('.dotMenu').mouseout(function() {
-  //   if (iconMenu.hasClass('visible')) {
-  //   } else {
-  //     $(this).attr('src', './images/icons/box-closed.png')
-  //   }
-  // })
-
-  function toggleMenu() {
-    iconMenu.toggleClass('visible')
-  }
-
-  function resetMenu() {
-    toggleMenu()
-    $('.dotMenu').attr('src', './images/icons/box-closed.png')
   }
 
   function hideSections(){
@@ -130,7 +139,7 @@ $(() => {
     icon.addEventListener('mouseover', (e) => {
       if (!$(e.target).hasClass('current')) {
         if ($(e.target).hasClass('visualisation')) {
-          $(e.target).attr('src', './images/icons/visualisationC.png')
+          $(e.target).attr('src', './images/icons/visualisationD.png')
         } else if ($(e.target).hasClass('events')) {
           $(e.target).attr('src', './images/icons/eventsC.png')
         } else if ($(e.target).hasClass('design')) {

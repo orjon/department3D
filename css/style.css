@@ -54,7 +54,7 @@
 
 nav {
   background-color: rgba(68, 68, 68, 0.85);
-  font-size: 20px;
+  font-size: 10px;
   font-weight: 100;
   color: white;
 }
@@ -79,7 +79,7 @@ nav .leftBox a .navLogo {
   width: 100%;
   height: auto;
 }
-nav .leftBox .dotMenu {
+nav .leftBox .boxMenu {
   z-index: 11;
   max-height: 34px;
   width: auto;
@@ -96,13 +96,16 @@ nav .rightBox {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 15px 15px 15px;
+  padding: 0 10px 10px 10px;
   display: none;
 }
 nav .rightBox .navIcon {
+  border: 0px solid green;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 10px;
-  width: 50px;
   width: 50px;
   border: 0px solid orange;
 }
@@ -160,7 +163,7 @@ nav .rightBox.visible {
     max-height: none;
     width: 100%;
   }
-  nav .leftBox .dotMenu {
+  nav .leftBox .boxMenu {
     display: none;
   }
   nav .rightBox {
@@ -176,10 +179,12 @@ nav .rightBox.visible {
     flex-direction: row;
     justify-content: flex-end;
     align-content: center;
-    padding: 15px 0px 15px 15px;
+    padding: 10px 0px 10px 10px;
   }
   nav .rightBox .navIcon {
+    border: 0px solid lime;
     display: flex;
+    flex-direction: column;
     margin-top: 0;
     margin-right: 20px;
     width: 50px;
@@ -355,7 +360,6 @@ nav .rightBox.visible {
 .slideSet.visible {
   width: 100%;
   height: 100%;
-  border: 0px solid blue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -634,9 +638,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 0px solid orange;
-}
-#screenContainer nav {
   border: 0px solid blue;
 }
 #screenContainer .content {
@@ -647,7 +648,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 0px solid blue;
 }
 
 .o {

@@ -1,14 +1,15 @@
 window.addEventListener('DOMContentLoaded', () => {
 
   window.onload = function (){
-    console.log('department3D v1.0')
+    console.log('department3D v1.2')
     checkWindowSize()
-    checkOrientation()
+    orientation = checkOrientation()
   }
 
   window.onresize = function(){
     checkWindowSize()
-    checkOrientation()
+    orientation = checkOrientation()
+    console.log('resize: '+ orientation)
   }
 
   function checkWindowSize(){
@@ -25,21 +26,12 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
 
-
   function checkOrientation() {
     if(window.innerHeight > window.innerWidth){
-      // console.log('Portrait')
-      $('.landscape').addClass('hidden')
-      $('.portrait').removeClass('hidden')
-
+      return 'Portrait'
     } else {
-      // console.log('Landscape')
-      $('.landscape').removeClass('hidden')
-      $('.portrait').addClass('hidden')
-
+      return 'Landscape'
     }
   }
-
-
 
 })
