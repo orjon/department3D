@@ -25,10 +25,6 @@
 
       gtag('config', 'UA-158798570-1');
     </script>
-
-    <script type='text/javascript' > 
-      let orientation = undefined
-    </script>
     <script type='text/javascript' src='./scripts/main.js'></script>
     <script type='text/javascript' src='./scripts/nav.js'></script>
     <script type='text/javascript' src='./scripts/slideShow.js'></script>
@@ -88,7 +84,7 @@
 
       <div class='content'>
         
-        <div id='visualisationSlides' class='slideSet visible'>
+        <div id='visualisationSlidesLandscape' class='slideSet visible'>
           <img class='slide' src='./images/visualisation/parkView.jpg' alt=''>
           <img class='slide contained' src='./images/visualisation/apartmentBuilding.jpg' alt=''>
           <img class='slide' src='./images/visualisation/houtBayLiving.jpg' alt=''>
@@ -102,30 +98,54 @@
           <img class='slide contained' src='./images/visualisation/stokholmLibrary.jpg' alt=''>
         </div>
 
-        <div id='eventsSlides' class='slideSet hidden' >
-          <img class='slide landscape' src='./images/events/events_01.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_02.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_03.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_04.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_05.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_06.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_07.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_08.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_09.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_10.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_11.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_12.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_13.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_14.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_15.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_16.jpg' alt=''>
-          <img class='slide landscape' src='./images/events/events_17.jpg' alt=''>
-          <img class='slide portrait landscape' src='./images/events/events_03t.jpg' alt=''>
-          <img class='slide portrait' src='./images/events/events_04t.jpg' alt=''>
-          <img class='slide portrait' src='./images/events/events_09t.jpg' alt=''>
+        <div id='visualisationSlidesPortrait' class='slideSet visible'>
+          <img class='slide contained' src='./images/visualisation/reception.jpg' alt=''>
+          <img class='slide contained' src='./images/visualisation/honestlyGood.jpg' alt=''>
+          <img class='slide contained' src='./images/visualisation/stokholmLibrary.jpg' alt=''>
         </div>
 
-        <div id='designSlides' class='slideSet hidden' >
+        <div id='eventsSlidesLandscape' class='slideSet hidden' >
+          <img class='slide' src='./images/events/events_01L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_02L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_03.jpg' alt=''>
+          <img class='slide' src='./images/events/events_04L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_05.jpg' alt=''>
+          <img class='slide' src='./images/events/events_06L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_07.jpg' alt=''>
+          <img class='slide' src='./images/events/events_08L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_09.jpg' alt=''>
+          <img class='slide' src='./images/events/events_10L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_11L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_12.jpg' alt=''>
+          <img class='slide' src='./images/events/events_13L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_14.jpg' alt=''>
+          <img class='slide' src='./images/events/events_15.jpg' alt=''>
+          <img class='slide' src='./images/events/events_16L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_17.jpg' alt=''>
+        </div>
+
+
+        <div id='eventsSlidesPortrait' class='slideSet hidden' >
+          <img class='slide' src='./images/events/events_01P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_02P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_03.jpg' alt=''>
+          <img class='slide' src='./images/events/events_04P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_05.jpg' alt=''>
+          <img class='slide' src='./images/events/events_06P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_07.jpg' alt=''>
+          <img class='slide' src='./images/events/events_08P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_09.jpg' alt=''>
+          <img class='slide' src='./images/events/events_10P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_11P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_12.jpg' alt=''>
+          <img class='slide' src='./images/events/events_13P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_14.jpg' alt=''>
+          <img class='slide' src='./images/events/events_15.jpg' alt=''>
+          <img class='slide' src='./images/events/events_16P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_17.jpg' alt=''>
+        </div>
+
+        <div id='designSlidesLandscape' class='slideSet hidden' >
           <img class='slide contained' src='./images/design/powerBuoy.png' alt=''>
           <img class='slide contained' src='./images/design/knifePlan.jpg' alt=''>
           <img class='slide contained' src='./images/design/knife-drawing2.jpg' alt=''>
@@ -137,12 +157,12 @@
           <img class='slide' src='./images/design/BhungaPhoto.jpg' alt=''>
         </div>
 
-        <div id='printSlides' class='slideSet hidden' >
+        <div id='designSlidesPortrait' class='slideSet hidden' >
+          <img class='slide' src='./images/design/airFrance.jpg' alt=''>
           <img class='slide contained' src='./images/design/chixSeats.jpg' alt=''>
           <img class='slide contained' src='./images/design/BhungaElevation.jpg' alt=''>
           <img class='slide' src='./images/design/BhungaPhoto.jpg' alt=''>
         </div>
-
 
         <div id='visualisationTextBox' class='textBox'>
           <p>Visualisation services for architects and designers.</p>
@@ -154,11 +174,6 @@
 
         <div id='designTextBox' class='textBox hidden'>
           <p>Creative design & technical detailing for events, interiors and bespoke projects.</p>
-        </div>
-
-
-        <div id='printTextBox' class='textBox hidden'>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
         </div>
 
         <div id='contact' class='textBox hidden'>

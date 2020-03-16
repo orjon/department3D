@@ -5,7 +5,7 @@
 @import 'nav';
 @import 'logoImage';
 @import 'slideShowLinkLess';
-@import 'slideShow';
+// @import 'slideShow';
 @import 'textBox';
 @import 'contact';
 @import 'footer';
@@ -19,6 +19,10 @@
   padding: 0;
   scroll-behavior: smooth;
   text-decoration: none;
+}
+
+.hidden {
+  display: none;
 }
 
 body {
@@ -46,8 +50,6 @@ body {
       // border: $devBorder solid blue;
     }
 
-
-
 }
 
 .o {
@@ -57,4 +59,8 @@ body {
 
 body::-webkit-scrollbar {
   width: 0 !important;
+}
+
+.slideSet.visible.hiddenOrientation {
+  display: none;
 }

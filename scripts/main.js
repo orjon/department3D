@@ -1,15 +1,11 @@
 window.addEventListener('DOMContentLoaded', () => {
 
   window.onload = function (){
-    console.log('department3D v1.2')
     checkWindowSize()
-    orientation = checkOrientation()
   }
 
   window.onresize = function(){
     checkWindowSize()
-    orientation = checkOrientation()
-    console.log('resize: '+ orientation)
   }
 
   function checkWindowSize(){
@@ -25,13 +21,5 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
-  function checkOrientation() {
-    if(window.innerHeight > window.innerWidth){
-      return 'Portrait'
-    } else {
-      return 'Landscape'
-    }
-  }
 
 })

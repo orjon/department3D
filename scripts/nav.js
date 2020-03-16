@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 $(() => {
+
+  let orientation = undefined
   // const currentPage = document.querySelector('.navText').innerHTML
   const navIcons = document.querySelectorAll('.navIcon')
   const $boxMenu = $('.boxMenu')
@@ -9,26 +11,18 @@ $(() => {
   const iconDesign = document.querySelector('.navIcon.design')
   const iconContact = document.querySelector('.navIcon.contact')
 
-
-  const $visualisationSlides = $('#visualisationSlides')
-  const $eventsSlides = $('#eventsSlides')
-  const $designSlides = $('#designSlides')
-  const $printSlides = $('#printSlides')
+  const $visualisationSlidesLandscape = $('#visualisationSlidesLandscape')
+  const $visualisationSlidesPortrait = $('#visualisationSlidesPortrait')
+  const $eventsSlidesLandscape = $('#eventsSlidesLandscape')
+  const $eventsSlidesPortrait = $('#eventsSlidesPortrait')
+  const $designSlidesLandscape = $('#designSlidesLandscape')
+  const $designSlidesPortrait = $('#designSlidesPortrait')
   const $contactPage = $('#contact')
-  // const siteVersion = document.getElementById('siteVersion')
-
-
-  const visualisationText = document.getElementById('visualisationText')
-  const designText = document.getElementById('designText')
-
-  const slideSets = document.querySelectorAll('.slides')
-  const currentNav = document.querySelector('.current')
-
 
   const textBoxMinWidth = 45
   const textBoxMaxWidth = 75
   const textBoxPadding = 5
-  const $textBoxes = $('.textBox')
+
   const $visualisationTextBox = $('#visualisationTextBox')
   const $eventsTextBox = $('#eventsTextBox')
   const $designTextBox = $('#designTextBox')
@@ -37,6 +31,54 @@ $(() => {
   let textBoxWidth = undefined
   let textBoxXPosition = undefined
   let textBoxYPosition = undefined
+
+  window.onload = function (){
+    console.log('department3D v1.2')
+    orientation = checkOrientation()
+    console.log(orientation)
+    setOrienation()
+  }
+
+  window.onresize = function(){
+    let oldOrientation = orientation
+    orientation = checkOrientation()
+    if (!oldOrientation === orientation){
+    } else {
+      // console.log(orientation)
+      setOrienation()
+    }
+  }
+
+  function checkOrientation() {
+    if(window.innerHeight > window.innerWidth){
+      return 'Portrait'
+    } else {
+      return 'Landscape'
+    }
+  }
+
+  function setOrienation(){
+    if (orientation === 'Portrait'){
+      $visualisationSlidesLandscape.addClass('hiddenOrientation')
+      $eventsSlidesLandscape.addClass('hiddenOrientation')
+      $designSlidesLandscape.addClass('hiddenOrientation')
+            
+      $visualisationSlidesPortrait.removeClass('hiddenOrientation')
+      $eventsSlidesPortrait.removeClass('hiddenOrientation')
+      $designSlidesPortrait.removeClass('hiddenOrientation')
+    } else {
+      $visualisationSlidesLandscape.removeClass('hiddenOrientation')
+      $eventsSlidesLandscape.removeClass('hiddenOrientation')
+      $designSlidesLandscape.removeClass('hiddenOrientation')
+
+      $visualisationSlidesPortrait.addClass('hiddenOrientation')
+      $eventsSlidesPortrait.addClass('hiddenOrientation')
+      $designSlidesPortrait.addClass('hiddenOrientation')
+    }
+  }
+
+
+  
 
   function textBoxPosition() {
     if ($(window).width() > 800) {
@@ -119,11 +161,12 @@ $(() => {
   }
 
   function hideSections(){
-
-    $visualisationSlides.attr('class','slideSet hidden')
-    $eventsSlides.attr('class','slideSet hidden')
-    $designSlides.attr('class','slideSet hidden')
-    $printSlides.attr('class','slideSet hidden')
+    $visualisationSlidesPortrait.attr('class','slideSet hidden')
+    $visualisationSlidesLandscape.attr('class','slideSet hidden')
+    $eventsSlidesPortrait.attr('class','slideSet hidden')
+    $eventsSlidesLandscape.attr('class','slideSet hidden')
+    $designSlidesPortrait.attr('class','slideSet hidden')
+    $designSlidesLandscape.attr('class','slideSet hidden')
 
     $visualisationTextBox.addClass('hidden')
     $eventsTextBox.addClass('hidden')
@@ -139,7 +182,7 @@ $(() => {
     icon.addEventListener('mouseover', (e) => {
       if (!$(e.target).hasClass('current')) {
         if ($(e.target).hasClass('visualisation')) {
-          $(e.target).attr('src', './images/icons/visualisationD.png')
+          $(e.target).attr('src', './images/icons/visualisationC.png')
         } else if ($(e.target).hasClass('events')) {
           $(e.target).attr('src', './images/icons/eventsC.png')
         } else if ($(e.target).hasClass('design')) {
@@ -158,31 +201,29 @@ $(() => {
       resetMenu()
       hideSections()
       if ($(e.target).hasClass('visualisation')) {
-        $visualisationSlides.attr('class','slideSet visible')
+        $visualisationSlidesPortrait.attr('class','slideSet visible')
+        $visualisationSlidesLandscape.attr('class','slideSet visible')
         $visualisationTextBox.removeClass('hidden')
         $('.navIcon.visualisation').addClass('current')
 
       } else if ($(e.target).hasClass('events')) {
-        $eventsSlides.attr('class','slideSet visible')
+        $eventsSlidesPortrait.attr('class','slideSet visible')
+        $eventsSlidesLandscape.attr('class','slideSet visible')
         $eventsTextBox.removeClass('hidden')
         $('.navIcon.events').addClass('current')
 
       } else if ($(e.target).hasClass('design')) {
-        $designSlides.attr('class','slideSet visible')
+        $designSlidesPortrait.attr('class','slideSet visible')
+        $designSlidesLandscape.attr('class','slideSet visible')
         $designTextBox.removeClass('hidden')
         $('.navIcon.design').addClass('current')
-
-      } else if ($(e.target).hasClass('print')) {
-        $printSlides.attr('class','slideSet visible')
-        $printTextBox.removeClass('hidden')
-        $('.navIcon.print').addClass('current')
-
 
       } else if ($(e.target).hasClass('contact')) {
         document.querySelector('.leftBox').classList.add('contact')
         $contactPage.removeClass('hidden')
         $('.navIcon.contact').addClass('current')
       }
+      setOrienation()
       setNavIcons()
     })
 

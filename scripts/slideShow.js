@@ -1,17 +1,25 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-  const $visualisationSlides = $('#visualisationSlides > .slide')
-  const $eventsSlidesLandscape = $('#eventsSlides > .slide:not(.portrait)')
-  const $eventsSlidesPortrait = $('#eventsSlides > .slide:not(.landscape)')
-  const $designSlides = $('#designSlides > .slide')
-  const $printSlides = $('#printSlides > .slide')
-  const allSlides = [
-    $visualisationSlides,
+  const $visualisationSlidesLandscape = $('#visualisationSlidesLandscape > .slide')
+  const $visualisationSlidesPortrait = $('#visualisationSlidesPortrait > .slide')
+
+  const $eventsSlidesLandscape = $('#eventsSlidesLandscape > .slide')
+  const $eventsSlidesPortrait = $('#eventsSlidesPortrait > .slide')
+
+  const $designSlidesLandscape = $('#designSlidesLandscape > .slide')
+  const $designSlidesPortrait = $('#designSlidesPortrait > .slide')
+
+  // const $printSlides = $('#printSlides > .slide')
+
+  const slidesAll = [
+    $visualisationSlidesLandscape,
+    $visualisationSlidesPortrait,
     $eventsSlidesLandscape,
     $eventsSlidesPortrait,
-    $designSlides,
-    $printSlides 
-    ]
+    $designSlidesLandscape,
+    $designSlidesPortrait,
+  ]
+
 
   function incrementSlides(i, slideArray){
     slideArray[i].classList.remove('show')
@@ -26,17 +34,11 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   setTimeout(function() {
-    allSlides.forEach(slideSet =>{
-      slideSet[0].classList.add('show')
-    })
+    slidesAll.forEach(slideSet => slideSet[0].classList.add('show'))
   }, 0) // show first slide on page load
 
   setTimeout(function() {
-    allSlides.forEach(slideSet =>{
-      incrementSlides(0, slideSet)
-    })
+    slidesAll.forEach(slideSet => incrementSlides(0, slideSet))
   }, 5000) // show first slide for 5 secs
-
-
 
 })
