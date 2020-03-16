@@ -354,43 +354,19 @@ nav .rightBox.visible {
   display: inline-block;
   padding: 10%;
 }
-#visualisationSlides.visible img.slide {
-  object-fit: cover;
-}
-#visualisationSlides.visible img.slide.contained {
-  object-fit: cover;
-  position: absolute;
-}
-@media (min-width: 600px) {
-  #visualisationSlides.visible img.slide.contained {
-    object-fit: contain;
-  }
-}
-
-#designSlides.visible img.slide {
-  object-fit: cover;
-}
-#designSlides.visible img.slide.contained {
-  object-fit: contain;
-}
-@media (min-width: 600px) {
-  #designSlides.visible img.slide.contained {
-    object-fit: contain;
-  }
-}
-
-#visualisationSlides.visible,
-#designSlides.visible {
+.slideSet.visible {
   width: 100%;
   height: 100%;
-  border: 0px solid blue;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
-#visualisationSlides.visible img.slide,
-#designSlides.visible img.slide {
+.slideSet.visible .hiddenOrientation {
+  display: none;
+}
+.slideSet.visible img.slide {
+  object-fit: cover;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -398,8 +374,16 @@ nav .rightBox.visible {
   -webkit-transition: opacity 3s;
   transition: opacity 3s;
 }
-#visualisationSlides.visible img.slide.p,
-#designSlides.visible img.slide.p {
+.slideSet.visible img.slide.contained {
+  object-fit: cover;
+  position: absolute;
+}
+@media (min-width: 600px) {
+  .slideSet.visible img.slide.contained {
+    object-fit: contain;
+  }
+}
+.slideSet.visible img.slide.p {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -407,12 +391,10 @@ nav .rightBox.visible {
   -webkit-transition: opacity 3s;
   transition: opacity 3s;
 }
-#visualisationSlides.visible img.slide.show,
-#designSlides.visible img.slide.show {
+.slideSet.visible img.slide.show {
   opacity: 1;
 }
-#visualisationSlides.visible .slideShowButton,
-#designSlides.visible .slideShowButton {
+.slideSet.visible .slideShowButton {
   width: 40px;
   height: 40px;
   background: rgba(68, 68, 68, 0.85);
@@ -421,8 +403,7 @@ nav .rightBox.visible {
   right: 10px;
   border: 0px solid orange;
 }
-#visualisationSlides.visible .playPause,
-#designSlides.visible .playPause {
+.slideSet.visible .playPause {
   width: 90%;
   position: absolute;
   top: 50%;
