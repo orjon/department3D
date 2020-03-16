@@ -1,14 +1,11 @@
 window.addEventListener('DOMContentLoaded', () => {
 
   window.onload = function (){
-    console.log('department3D v1.0')
     checkWindowSize()
-    checkOrientation()
   }
 
   window.onresize = function(){
     checkWindowSize()
-    checkOrientation()
   }
 
   function checkWindowSize(){
@@ -23,23 +20,6 @@ window.addEventListener('DOMContentLoaded', () => {
       document.documentElement.style.setProperty('--fontSizeHello', '4vh')
     }
   }
-
-
-
-  function checkOrientation() {
-    if(window.innerHeight > window.innerWidth){
-      // console.log('Portrait')
-      $('.landscape').addClass('hidden')
-      $('.portrait').removeClass('hidden')
-
-    } else {
-      // console.log('Landscape')
-      $('.landscape').removeClass('hidden')
-      $('.portrait').addClass('hidden')
-
-    }
-  }
-
 
 
 })

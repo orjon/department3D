@@ -1,57 +1,100 @@
 /* eslint-disable no-unused-vars */
 $(() => {
 
+  let orientation = undefined
   // const currentPage = document.querySelector('.navText').innerHTML
   const navIcons = document.querySelectorAll('.navIcon')
-  const dotMenu = document.querySelector('.dotMenu')
+  const $boxMenu = $('.boxMenu')
   const iconMenu = $('.rightBox')
 
   const iconVisualisation = document.querySelector('.navIcon.visualisation')
   const iconDesign = document.querySelector('.navIcon.design')
   const iconContact = document.querySelector('.navIcon.contact')
 
-  const visualisationSlides = document.getElementById('visualisationSlides')
-  const designSlides = document.getElementById('designSlides')
-
-  const visualisationText = document.getElementById('visualisationText')
-  const designText = document.getElementById('designText')
-
-  const slideSets = document.querySelectorAll('.slides')
-  const currentNav = document.querySelector('.current')
-
-  const contactPage = document.getElementById('contact')
-  const siteVersion = document.getElementById('siteVersion')
+  const $visualisationSlidesLandscape = $('#visualisationSlidesLandscape')
+  const $visualisationSlidesPortrait = $('#visualisationSlidesPortrait')
+  const $eventsSlidesLandscape = $('#eventsSlidesLandscape')
+  const $eventsSlidesPortrait = $('#eventsSlidesPortrait')
+  const $designSlidesLandscape = $('#designSlidesLandscape')
+  const $designSlidesPortrait = $('#designSlidesPortrait')
+  const $contactPage = $('#contact')
 
   const textBoxMinWidth = 45
   const textBoxMaxWidth = 75
   const textBoxPadding = 5
-  const textBox = document.querySelector('.textBox')
-  const visualisationTextBox = document.querySelector('.visualisationTextBox')
-  const designTextBox = document.querySelector('.designTextBox')
+
+  const $visualisationTextBox = $('#visualisationTextBox')
+  const $eventsTextBox = $('#eventsTextBox')
+  const $designTextBox = $('#designTextBox')
+  const $printTextBox = $('#printTextBox')
 
   let textBoxWidth = undefined
   let textBoxXPosition = undefined
   let textBoxYPosition = undefined
+
+  window.onload = function (){
+    console.log('department3D v1.2')
+    orientation = checkOrientation()
+    console.log(orientation)
+    setOrienation()
+  }
+
+  window.onresize = function(){
+    let oldOrientation = orientation
+    orientation = checkOrientation()
+    if (!oldOrientation === orientation){
+    } else {
+      // console.log(orientation)
+      setOrienation()
+    }
+  }
+
+  function checkOrientation() {
+    if(window.innerHeight > window.innerWidth){
+      return 'Portrait'
+    } else {
+      return 'Landscape'
+    }
+  }
+
+  function setOrienation(){
+    if (orientation === 'Portrait'){
+      $visualisationSlidesLandscape.addClass('hiddenOrientation')
+      $eventsSlidesLandscape.addClass('hiddenOrientation')
+      $designSlidesLandscape.addClass('hiddenOrientation')
+            
+      $visualisationSlidesPortrait.removeClass('hiddenOrientation')
+      $eventsSlidesPortrait.removeClass('hiddenOrientation')
+      $designSlidesPortrait.removeClass('hiddenOrientation')
+    } else {
+      $visualisationSlidesLandscape.removeClass('hiddenOrientation')
+      $eventsSlidesLandscape.removeClass('hiddenOrientation')
+      $designSlidesLandscape.removeClass('hiddenOrientation')
+
+      $visualisationSlidesPortrait.addClass('hiddenOrientation')
+      $eventsSlidesPortrait.addClass('hiddenOrientation')
+      $designSlidesPortrait.addClass('hiddenOrientation')
+    }
+  }
+
+
+  
 
   function textBoxPosition() {
     if ($(window).width() > 800) {
       textBoxWidth = (textBoxMinWidth + Math.floor(Math.random() * (textBoxMaxWidth-textBoxMinWidth))+1)
       textBoxXPosition = (textBoxPadding + Math.floor(Math.random() * ((100-textBoxWidth-textBoxPadding)-textBoxPadding))+ 1)
       textBoxYPosition = (textBoxPadding + Math.floor(Math.random() * (30-textBoxPadding))+ 1)
-      visualisationTextBox.style.width = `${textBoxWidth}vw`
-      visualisationTextBox.style.left = `${textBoxXPosition}vw`
-      visualisationTextBox.style.bottom = `${textBoxYPosition}vh`
+      $visualisationTextBox.css({width:`${textBoxWidth}vw`, left: `${textBoxXPosition}vw`,bottom: `${textBoxYPosition}vh`})
       textBoxWidth = (textBoxMinWidth + Math.floor(Math.random() * (textBoxMaxWidth-textBoxMinWidth))+1)
       textBoxXPosition = (textBoxPadding + Math.floor(Math.random() * ((100-textBoxWidth-textBoxPadding)-textBoxPadding))+ 1)
       textBoxYPosition = (textBoxPadding + Math.floor(Math.random() * (40-textBoxPadding))+ 1)
-      designTextBox.style.width = `${textBoxWidth}vw`
-      designTextBox.style.left = `${textBoxXPosition}vw`
-      designTextBox.style.bottom = `${textBoxYPosition}vh`
+      $designTextBox.css({width:`${textBoxWidth}vw`, left: `${textBoxXPosition}vw`,bottom: `${textBoxYPosition}vh`})
     }
     // Hide Textbox after X secs
     // setTimeout(function() {
-    //   visualisationTextBox.classList.add('hidden')
-    //   designTextBox.classList.add('hidden')
+    //   $visualisationTextBox.addClass('hidden')
+    //   $designTextBox.addClass('hidden')
     // }, 6000)
   }
 
@@ -61,84 +104,126 @@ $(() => {
 
   textBoxPosition()
 
-  $('.visualisationTextBox').mousedown(function() {
-    visualisationTextBox.classList.add('hidden')
+
+  $visualisationTextBox.mousedown(function() {
+    $visualisationTextBox.addClass('hidden')
+  })
+  $eventsTextBox.mousedown(function() {
+    $eventsTextBox.addClass('hidden')
+  })
+  $designTextBox.mousedown(function() {
+    $designTextBox.addClass('hidden')
+  })
+  $printTextBox.mousedown(function() {
+    $printTextBox.addClass('hidden')
   })
 
-  $('.designTextBox').mousedown(function() {
-    designTextBox.classList.add('hidden')
+
+  $boxMenu.mousedown(function() {
+    toggleMenu()
   })
 
 
-  $('.dotMenu').mousedown(function() {
-    $(this).attr('src', './images/icons/squareMenuB.png')
-    hideMenu()
+  $boxMenu.mouseover(function() {
+    if ($boxMenu.hasClass('closed')) {
+      $boxMenu.attr('src', './images/icons/box-open.png')
+    } 
   })
 
-
-
-  $('.dotMenu').mouseout(function() {
-    if (iconMenu.hasClass('visible')) {
-    } else {
-      $(this).attr('src', './images/icons/squareMenuAA.png')
+  $boxMenu.mouseout(function() {
+    if ($boxMenu.hasClass('closed')) {
+      $boxMenu.attr('src', './images/icons/box-closed.png') 
     }
   })
 
-  function hideMenu() {
+
+  function toggleMenu() {
     iconMenu.toggleClass('visible')
+    if (iconMenu.hasClass('visible')) {
+      $(this).attr('src', './images/icons/box-open.png')
+      $boxMenu.attr('src', './images/icons/box-open.png')
+      $boxMenu.removeClass('closed')
+    } else {
+      $(this).attr('src', './images/icons/box-closed.png')
+      $boxMenu.attr('src', './images/icons/box-closed.png')
+      $boxMenu.addClass('closed')
+    }
   }
 
   function resetMenu() {
-    hideMenu()
-    $('.dotMenu').attr('src', './images/icons/squareMenuAA.png')
+    toggleMenu()
+    if (iconMenu.hasClass('visible')) {
+      $(this).attr('src', './images/icons/box-open.png')
+    } else {
+      $(this).attr('src', './images/icons/box-closed.png')
+    }
+
   }
 
+  function hideSections(){
+    $visualisationSlidesPortrait.attr('class','slideSet hidden')
+    $visualisationSlidesLandscape.attr('class','slideSet hidden')
+    $eventsSlidesPortrait.attr('class','slideSet hidden')
+    $eventsSlidesLandscape.attr('class','slideSet hidden')
+    $designSlidesPortrait.attr('class','slideSet hidden')
+    $designSlidesLandscape.attr('class','slideSet hidden')
+
+    $visualisationTextBox.addClass('hidden')
+    $eventsTextBox.addClass('hidden')
+    $designTextBox.addClass('hidden')
+    $printTextBox.addClass('hidden')
+    $contactPage.attr('class','hidden')
+  }
 
 
 
   navIcons.forEach(icon => {
+
     icon.addEventListener('mouseover', (e) => {
-      if ($(e.target).hasClass('visualisation')) {
-        $(e.target).attr('src', './images/icons/visualisationThinWhtByellow.png')
-      } else if ($(e.target).hasClass('design')) {
-        $(e.target).attr('src', './images/icons/designThinWhtB2.png')
-      } else if ($(e.target).hasClass('contact')) {
-        $(e.target).attr('src', './images/icons/contactThinWhtB.png')
+      if (!$(e.target).hasClass('current')) {
+        if ($(e.target).hasClass('visualisation')) {
+          $(e.target).attr('src', './images/icons/visualisationC.png')
+        } else if ($(e.target).hasClass('events')) {
+          $(e.target).attr('src', './images/icons/eventsC.png')
+        } else if ($(e.target).hasClass('design')) {
+          $(e.target).attr('src', './images/icons/designC.png')
+        } else if ($(e.target).hasClass('print')) {
+          $(e.target).attr('src', './images/icons/printC.png')
+        } else if ($(e.target).hasClass('contact')) {
+          $(e.target).attr('src', './images/icons/contactC.png')
+        }
       }
     })
 
     icon.addEventListener('mousedown', (e) => {
       resetNavIcons()
       textBoxPosition()
+      resetMenu()
+      hideSections()
       if ($(e.target).hasClass('visualisation')) {
-        resetMenu()
-        visualisationSlides.className = 'visible'
-        visualisationTextBox.className = 'visualisationTextBox'
-        designSlides.className ='hidden'
-        designTextBox.classList.add('hidden')
-        contactPage.classList.add('hidden')
-        siteVersion.className = 'hidden'
+        $visualisationSlidesPortrait.attr('class','slideSet visible')
+        $visualisationSlidesLandscape.attr('class','slideSet visible')
+        $visualisationTextBox.removeClass('hidden')
         $('.navIcon.visualisation').addClass('current')
+
+      } else if ($(e.target).hasClass('events')) {
+        $eventsSlidesPortrait.attr('class','slideSet visible')
+        $eventsSlidesLandscape.attr('class','slideSet visible')
+        $eventsTextBox.removeClass('hidden')
+        $('.navIcon.events').addClass('current')
+
       } else if ($(e.target).hasClass('design')) {
-        resetMenu()
-        visualisationSlides.className ='hidden'
-        visualisationTextBox.classList.add('hidden')
-        designSlides.className = 'visible'
-        designTextBox.className ='designTextBox'
-        contactPage.classList.add('hidden')
-        siteVersion.className = 'hidden'
+        $designSlidesPortrait.attr('class','slideSet visible')
+        $designSlidesLandscape.attr('class','slideSet visible')
+        $designTextBox.removeClass('hidden')
         $('.navIcon.design').addClass('current')
+
       } else if ($(e.target).hasClass('contact')) {
-        resetMenu()
         document.querySelector('.leftBox').classList.add('contact')
-        visualisationTextBox.classList.add('hidden')
-        designTextBox.classList.add('hidden')
-        visualisationSlides.className ='hidden'
-        designSlides.className ='hidden'
-        contactPage.className = 'visible'
-        siteVersion.className = ''
+        $contactPage.removeClass('hidden')
         $('.navIcon.contact').addClass('current')
       }
+      setOrienation()
       setNavIcons()
     })
 
@@ -157,13 +242,17 @@ $(() => {
   }
 
   function setNavIcons() {
-    $('.navIcon.visualisation').attr('src', './images/icons/visualisationThinWhtA.png')
-    $('.navIcon.design').attr('src', './images/icons/designThinWhtA.png')
-    $('.navIcon.contact').attr('src', './images/icons/contactThinWhtA.png')
+    $('.navIcon.visualisation').attr('src', './images/icons/visualisationA.png')
+    $('.navIcon.events').attr('src', './images/icons/eventsA.png')
+    $('.navIcon.design').attr('src', './images/icons/designA.png')
+    $('.navIcon.print').attr('src', './images/icons/printA.png')
+    $('.navIcon.contact').attr('src', './images/icons/contactA.png')
 
-    $('.navIcon.visualisation.current').attr('src', './images/icons/visualisationThinWhtByellow.png')
-    $('.navIcon.design.current').attr('src', './images/icons/designThinWhtB2.png')
-    $('.navIcon.contact.current').attr('src', './images/icons/contactThinWhtB.png')
+    $('.navIcon.visualisation.current').attr('src', './images/icons/visualisationC.png')
+    $('.navIcon.events.current').attr('src', './images/icons/eventsC.png')
+    $('.navIcon.design.current').attr('src', './images/icons/designC.png')
+    $('.navIcon.print.current').attr('src', './images/icons/printC.png')
+    $('.navIcon.contact.current').attr('src', './images/icons/contactC.png')
   }
 
 

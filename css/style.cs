@@ -54,7 +54,7 @@
 
 nav {
   background-color: rgba(68, 68, 68, 0.85);
-  font-size: 10px;
+  font-size: 20px;
   font-weight: 100;
   color: white;
 }
@@ -64,6 +64,7 @@ nav .leftBox {
   height: 54px;
   width: 100vw;
   padding: 10px 15px;
+  padding-right: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -79,7 +80,7 @@ nav .leftBox a .navLogo {
   width: 100%;
   height: auto;
 }
-nav .leftBox .boxMenu {
+nav .leftBox .dotMenu {
   z-index: 11;
   max-height: 34px;
   width: auto;
@@ -96,16 +97,14 @@ nav .rightBox {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 10px 10px 10px;
+  padding: 10px 10 10px 20px;
   display: none;
 }
 nav .rightBox .navIcon {
-  border: 0px solid green;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-right: 10px;
+  width: 50px;
   width: 50px;
   border: 0px solid orange;
 }
@@ -134,7 +133,7 @@ nav .rightBox.visible {
     opacity: 1;
   }
 }
-@media (min-width: 700px) {
+@media (min-width: 600px) {
   nav .leftBox {
     will-change: opacity;
     opacity: 1;
@@ -163,7 +162,7 @@ nav .rightBox.visible {
     max-height: none;
     width: 100%;
   }
-  nav .leftBox .boxMenu {
+  nav .leftBox .dotMenu {
     display: none;
   }
   nav .rightBox {
@@ -173,18 +172,16 @@ nav .rightBox.visible {
     will-change: transform;
     animation: 2.5s ease-out 0s 1 slideInFromRight;
     z-index: 10;
-    top: 20px;
+    top: 40px;
     right: 0;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-content: center;
-    padding: 10px 0px 10px 10px;
+    padding: 15px 0px 15px 15px;
   }
   nav .rightBox .navIcon {
-    border: 0px solid lime;
     display: flex;
-    flex-direction: column;
     margin-top: 0;
     margin-right: 20px;
     width: 50px;
@@ -211,6 +208,10 @@ nav .rightBox.visible {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   border: 0px solid cyan;
+}
+
+.hidden {
+  display: none;
 }
 
 .navArrows.landscape .navArrow {
@@ -353,19 +354,39 @@ nav .rightBox.visible {
   display: inline-block;
   padding: 10%;
 }
-.slideSet.visible {
+#visualisationSlides.visible img.slide,
+#eventsSlides.visible img.slide,
+#designSlides.visible img.slide {
+  object-fit: cover;
+}
+#visualisationSlides.visible img.slide.contained,
+#eventsSlides.visible img.slide.contained,
+#designSlides.visible img.slide.contained {
+  object-fit: cover;
+  position: absolute;
+}
+@media (min-width: 600px) {
+  #visualisationSlides.visible img.slide.contained,
+#eventsSlides.visible img.slide.contained,
+#designSlides.visible img.slide.contained {
+    object-fit: contain;
+  }
+}
+
+#visualisationSlides.visible,
+#eventsSlides.visible,
+#designSlides.visible {
   width: 100%;
   height: 100%;
+  border: 0px solid blue;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
-.slideSet.visible .hiddenOrientation {
-  display: none;
-}
-.slideSet.visible img.slide {
-  object-fit: cover;
+#visualisationSlides.visible img.slide,
+#eventsSlides.visible img.slide,
+#designSlides.visible img.slide {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -373,16 +394,9 @@ nav .rightBox.visible {
   -webkit-transition: opacity 3s;
   transition: opacity 3s;
 }
-.slideSet.visible img.slide.contained {
-  object-fit: cover;
-  position: absolute;
-}
-@media (min-width: 700px) {
-  .slideSet.visible img.slide.contained {
-    object-fit: contain;
-  }
-}
-.slideSet.visible img.slide.p {
+#visualisationSlides.visible img.slide.p,
+#eventsSlides.visible img.slide.p,
+#designSlides.visible img.slide.p {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -390,10 +404,14 @@ nav .rightBox.visible {
   -webkit-transition: opacity 3s;
   transition: opacity 3s;
 }
-.slideSet.visible img.slide.show {
+#visualisationSlides.visible img.slide.show,
+#eventsSlides.visible img.slide.show,
+#designSlides.visible img.slide.show {
   opacity: 1;
 }
-.slideSet.visible .slideShowButton {
+#visualisationSlides.visible .slideShowButton,
+#eventsSlides.visible .slideShowButton,
+#designSlides.visible .slideShowButton {
   width: 40px;
   height: 40px;
   background: rgba(68, 68, 68, 0.85);
@@ -402,7 +420,79 @@ nav .rightBox.visible {
   right: 10px;
   border: 0px solid orange;
 }
-.slideSet.visible .playPause {
+#visualisationSlides.visible .playPause,
+#eventsSlides.visible .playPause,
+#designSlides.visible .playPause {
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0px solid red;
+  mix-blend-mode: color-dodge;
+}
+
+#slideShow {
+  background: black;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#slideShow a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 0px solid cyan;
+}
+#slideShow a img.background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0.5;
+}
+#slideShow a img.slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: opacity 3s;
+  transition: opacity 3s;
+}
+#slideShow a img.slide.p {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: opacity 3s;
+  transition: opacity 3s;
+}
+@media (min-width: 600px) {
+  #slideShow a img.slide.p {
+    object-fit: contain;
+  }
+}
+#slideShow a img.slide.show {
+  opacity: 1;
+}
+#slideShow .slideShowButton {
+  width: 40px;
+  height: 40px;
+  background: rgba(68, 68, 68, 0.85);
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border: 0px solid orange;
+}
+#slideShow .playPause {
   width: 90%;
   position: absolute;
   top: 50%;
@@ -499,7 +589,7 @@ nav .rightBox.visible {
   text-align: justify;
   z-index: 5;
 }
-@media (min-width: 700px) {
+@media (min-width: 600px) {
   #contact {
     font-size: 25pt;
   }
@@ -535,7 +625,7 @@ footer #siteVersion a {
 footer #siteVersion.hidden {
   display: none;
 }
-@media (min-width: 700px) {
+@media (min-width: 600px) {
   footer #siteVersion {
     display: flex;
   }
@@ -550,10 +640,6 @@ footer #siteVersion.hidden {
   padding: 0;
   scroll-behavior: smooth;
   text-decoration: none;
-}
-
-.hidden {
-  display: none;
 }
 
 body {
@@ -571,6 +657,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 0px solid orange;
+}
+#screenContainer nav {
   border: 0px solid blue;
 }
 #screenContainer .content {
@@ -581,6 +670,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 0px solid blue;
 }
 
 .o {
@@ -592,8 +682,4 @@ body::-webkit-scrollbar {
   width: 0 !important;
 }
 
-.slideSet.visible.hiddenOrientation {
-  display: none;
-}
-
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.cs.map */

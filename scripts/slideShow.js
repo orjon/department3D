@@ -1,50 +1,44 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-  const designSlides = document.getElementById('designSlides').getElementsByClassName('slide')
-  const visualisationSlides = document.getElementById('visualisationSlides').getElementsByClassName('slide')
+  const $visualisationSlidesLandscape = $('#visualisationSlidesLandscape > .slide')
+  const $visualisationSlidesPortrait = $('#visualisationSlidesPortrait > .slide')
 
-  function designSlideShow(i){
-    designSlides[i].classList.remove('show')
-    if (i === designSlides.length -1) {
-      designSlides[0].className = 'slide show contained'
+  const $eventsSlidesLandscape = $('#eventsSlidesLandscape > .slide')
+  const $eventsSlidesPortrait = $('#eventsSlidesPortrait > .slide')
+
+  const $designSlidesLandscape = $('#designSlidesLandscape > .slide')
+  const $designSlidesPortrait = $('#designSlidesPortrait > .slide')
+
+  // const $printSlides = $('#printSlides > .slide')
+
+  const slidesAll = [
+    $visualisationSlidesLandscape,
+    $visualisationSlidesPortrait,
+    $eventsSlidesLandscape,
+    $eventsSlidesPortrait,
+    $designSlidesLandscape,
+    $designSlidesPortrait,
+  ]
+
+
+  function incrementSlides(i, slideArray){
+    slideArray[i].classList.remove('show')
+    if (i === slideArray.length -1) {
+      slideArray[0].className = 'slide show'
       i = - 1
     }
-
-    if (i > -1 ) {
-      designSlides[i+1].classList.add('show')
-    }
-
+    if (i > -1 ) {slideArray[i+1].classList.add('show')}
     setTimeout(function() {
-      designSlideShow(++i % designSlides.length)
+      incrementSlides(++i % slideArray.length, slideArray)
     }, 5000) // show each slide for 5 secs
   }
 
-  function visualisationSlideShow(i){
-    visualisationSlides[i].classList.remove('show')
-    if (i === visualisationSlides.length -1) {
-      visualisationSlides[0].className = 'slide show'
-      i = - 1
-    }
-
-    if (i > -1 ) {
-      visualisationSlides[i+1].classList.add('show')
-    }
-
-    setTimeout(function() {
-      visualisationSlideShow(++i % visualisationSlides.length)
-    }, 6000) // show each slide for 5 secs
-  }
+  setTimeout(function() {
+    slidesAll.forEach(slideSet => slideSet[0].classList.add('show'))
+  }, 0) // show first slide on page load
 
   setTimeout(function() {
-    designSlides[0].classList.add('show')
-    visualisationSlides[0].classList.add('show')
-  }, 1) // style first slide on page load
-
-  setTimeout(function() {
-    designSlideShow(0)
-    visualisationSlideShow(0)
-  }, 6000) // show first slide for 5 secs
-
-
+    slidesAll.forEach(slideSet => incrementSlides(0, slideSet))
+  }, 5000) // show first slide for 5 secs
 
 })

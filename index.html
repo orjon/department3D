@@ -42,21 +42,49 @@
       <nav>
         <div class='leftBox'>
           <a href='index.html'>
-            <img class='navLogo' src='./images/logo/department3D(white).png'>
+            <img class='navLogo' src='./images/logo/department3D.png'>
           </a>
-          <img class='dotMenu' src= './images/icons/squareMenuAA.png'>
+          <img class='boxMenu closed' src= './images/icons/box-closed.png'>
         </div>
 
         <div class='rightBox'>
-          <img class='navIcon visualisation current' src= './images/icons/visualisationThinWhtByellow.png'>
-          <img class='navIcon design' src= './images/icons/designThinWhtA.png'>
-          <img class='navIcon contact' src= './images/icons/contactThinWhtA.png'>
+          <img class='navIcon visualisation current' src= './images/icons/visualisationC.png'>
+          <img class='navIcon events' src= './images/icons/eventsA.png'>
+          <img class='navIcon design' src= './images/icons/designA.png'>
+          <!-- <img class='navIcon print' src= './images/icons/printA.png'> -->
+          <img class='navIcon contact' src= './images/icons/contactA.png'>
+
+          <!-- <div class='navIcon visualisation current'>
+            <img class='navIconImage' src= './images/icons/visualisationC.png' alt='visualisation icon'>
+            <p>VISUALS</p>
+          </div>
+
+          <div class='navIcon events'>
+            <img  class='navIconImage' src= './images/icons/eventsA.png'  alt='events icon'>
+            <p>EVENTS</p>
+          </div>
+
+          <div class='navIcon design'>
+            <img src= './images/icons/designA.png'  alt='design icon'>
+            <p>DESIGN</p>
+          </div>
+
+          <div class='navIcon print'>
+            <img src= './images/icons/printA.png'  alt='3D printing icon'>
+            <p>PRINTING</p>
+          </div>
+
+          <div class='navIcon contact'>
+            <img src= './images/icons/contactA.png' alt='contact icon'>
+            <p>CONTACT</p>
+          </div> -->
+
         </div>
       </nav>
 
       <div class='content'>
-
-        <div class='visible' id='visualisationSlides'>
+        
+        <div id='visualisationSlidesLandscape' class='slideSet visible'>
           <img class='slide' src='./images/visualisation/parkView.jpg' alt=''>
           <img class='slide contained' src='./images/visualisation/apartmentBuilding.jpg' alt=''>
           <img class='slide' src='./images/visualisation/houtBayLiving.jpg' alt=''>
@@ -67,35 +95,88 @@
           <img class='slide' src='./images/visualisation/jungleHouse.jpg' alt=''>
           <img class='slide contained' src='./images/visualisation/reception.jpg' alt=''>
           <img class='slide contained' src='./images/visualisation/honestlyGood.jpg' alt=''>
-          <img class='slide' src='./images/visualisation/samsung.jpg' alt=''>
           <img class='slide contained' src='./images/visualisation/stokholmLibrary.jpg' alt=''>
         </div>
 
+        <div id='visualisationSlidesPortrait' class='slideSet visible'>
+          <img class='slide contained' src='./images/visualisation/reception.jpg' alt=''>
+          <img class='slide contained' src='./images/visualisation/honestlyGood.jpg' alt=''>
+          <img class='slide contained' src='./images/visualisation/stokholmLibrary.jpg' alt=''>
+        </div>
 
-        <div class='hidden' id='designSlides'>
+        <div id='eventsSlidesLandscape' class='slideSet hidden' >
+          <img class='slide' src='./images/events/events_01L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_02L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_03.jpg' alt=''>
+          <img class='slide' src='./images/events/events_04L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_05.jpg' alt=''>
+          <img class='slide' src='./images/events/events_06L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_07.jpg' alt=''>
+          <img class='slide' src='./images/events/events_08L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_09.jpg' alt=''>
+          <img class='slide' src='./images/events/events_10L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_11L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_12.jpg' alt=''>
+          <img class='slide' src='./images/events/events_13L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_14.jpg' alt=''>
+          <img class='slide' src='./images/events/events_15.jpg' alt=''>
+          <img class='slide' src='./images/events/events_16L.jpg' alt=''>
+          <img class='slide' src='./images/events/events_17.jpg' alt=''>
+        </div>
+
+
+        <div id='eventsSlidesPortrait' class='slideSet hidden' >
+          <img class='slide' src='./images/events/events_01P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_02P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_03.jpg' alt=''>
+          <img class='slide' src='./images/events/events_04P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_05.jpg' alt=''>
+          <img class='slide' src='./images/events/events_06P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_07.jpg' alt=''>
+          <img class='slide' src='./images/events/events_08P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_09.jpg' alt=''>
+          <img class='slide' src='./images/events/events_10P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_11P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_12.jpg' alt=''>
+          <img class='slide' src='./images/events/events_13P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_14.jpg' alt=''>
+          <img class='slide' src='./images/events/events_15.jpg' alt=''>
+          <img class='slide' src='./images/events/events_16P.jpg' alt=''>
+          <img class='slide' src='./images/events/events_17.jpg' alt=''>
+        </div>
+
+        <div id='designSlidesLandscape' class='slideSet hidden' >
           <img class='slide contained' src='./images/design/powerBuoy.png' alt=''>
           <img class='slide contained' src='./images/design/knifePlan.jpg' alt=''>
           <img class='slide contained' src='./images/design/knife-drawing2.jpg' alt=''>
           <img class='slide contained' src='./images/design/foreshore_bridge-render.jpg' alt=''>
           <img class='slide' src='./images/design/foreshore_bridge-photo.jpg' alt=''>
-          <img class='slide' src='./images/design/ciscoLive2015.jpg' alt=''>
-          <img class='slide' src='./images/design/CiscoCollaboration-RenderPhoto.jpg' alt=''>
           <img class='slide' src='./images/design/airFrance.jpg' alt=''>
           <img class='slide contained' src='./images/design/chixSeats.jpg' alt=''>
           <img class='slide contained' src='./images/design/BhungaElevation.jpg' alt=''>
           <img class='slide' src='./images/design/BhungaPhoto.jpg' alt=''>
         </div>
 
-
-        <div class='visualisationTextBox'>
-          <p>3D modelling & visualisation services for architects, designers and event agencies.</p>
+        <div id='designSlidesPortrait' class='slideSet hidden' >
+          <img class='slide' src='./images/design/airFrance.jpg' alt=''>
+          <img class='slide contained' src='./images/design/chixSeats.jpg' alt=''>
+          <img class='slide contained' src='./images/design/BhungaElevation.jpg' alt=''>
+          <img class='slide' src='./images/design/BhungaPhoto.jpg' alt=''>
         </div>
 
-        <div class='designTextBox hidden'>
+        <div id='visualisationTextBox' class='textBox'>
+          <p>Visualisation services for architects and designers.</p>
+        </div>
+
+        <div id='eventsTextBox' class='textBox hidden'>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        </div>
+
+        <div id='designTextBox' class='textBox hidden'>
           <p>Creative design & technical detailing for events, interiors and bespoke projects.</p>
         </div>
 
-        <div id='contact' class='hidden'>
+        <div id='contact' class='textBox hidden'>
           <p>We are a small collective of designers, makers, and digital artists doing what we love.</p>
           <br/>
           <p>Contact us for assistance with your projects.</p>
@@ -104,15 +185,16 @@
             <a href='mailto:mail@department3D.com'>
               mail@department3D.com
             </a>
-            <a href='tel:+44'>
+            <a href='tel:+447848890660'>
               +44 (0)784 8890660
             </a>
           </div>
+          <footer>
+            <p id='siteVersion'>v1.2 : 2020.03</p>
+          </footer>
         </div>
 
-        <footer>
-          <p id='siteVersion' class='hidden'>v1.1 2020.02</p>
-        </footer>
+
 
       </div>
 

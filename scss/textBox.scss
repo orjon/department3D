@@ -1,8 +1,9 @@
 $textBoxPadding: 18px;
 $textBoxPaddingTop: ($textBoxPadding - 10px);
 
-.visualisationTextBox,
-.designTextBox {
+#visualisationTextBox,
+#eventsTextBox,
+#designTextBox {
   cursor: pointer;
   animation: 3s ease-out 0s 1 fadeIn;
   opacity: 1;
@@ -31,8 +32,9 @@ $textBoxPaddingTop: ($textBoxPadding - 10px);
 
 
 @media (min-width: $mediaWidth1) {
-  .visualisationTextBox,
-  .designTextBox {
+  #visualisationTextBox,
+  #eventsTextBox,
+  #designTextBox {
     cursor: pointer;
     animation: 3s ease-out 0s 1 fadeIn;
     opacity: 1;
@@ -63,8 +65,9 @@ $textBoxPaddingTop: ($textBoxPadding - 10px);
 
 
 
-.visualisationTextBox.hidden,
-.designTextBox.hidden {
+#visualisationTextBox.hidden,
+#eventsTextBox.hidden,
+#designTextBox.hidden {
     display: none;
 }
 
