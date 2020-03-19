@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   setTimeout(function() {
     slidesAll.forEach(slideSet => slideSet[0].classList.add('show'))
-  }, 0) // show first slide on page load
+  }, 1) // show first slide on page load
 
   setTimeout(function() {
     slidesAll.forEach(slideSet => incrementSlides(0, slideSet))

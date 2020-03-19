@@ -16,7 +16,7 @@ $textBoxPaddingTop: ($textBoxPadding - 10px);
   padding: $textBoxPadding;
   padding-top: $textBoxPaddingTop;
   color: white;
-  font-size: 20pt;
+  font-size: 16pt;
   text-align: justify-content;
   p {
     border: 0px solid lightgrey;
@@ -48,7 +48,7 @@ $textBoxPaddingTop: ($textBoxPadding - 10px);
     padding: $textBoxPadding;
     padding-top: $textBoxPaddingTop;
     color: white;
-    font-size: 25pt;
+    font-size: 20pt;
     text-align: justify-content;
     p {
       border: 0px solid lightgrey;
@@ -60,15 +60,6 @@ $textBoxPaddingTop: ($textBoxPadding - 10px);
       display: none;
     }
   }
-}
-
-
-
-
-#visualisationTextBox.hidden,
-#eventsTextBox.hidden,
-#designTextBox.hidden {
-    display: none;
 }
 
 

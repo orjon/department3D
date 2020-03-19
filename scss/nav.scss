@@ -8,8 +8,9 @@ nav {
   font-weight: 100;
   color: white;
   .leftBox {
-    opacity: 1;
+    z-index: 0;
     background-color: $colorNavBackgroundSolid;
+    box-shadow: 0 -2.5px 15px 5px rgba(0,0,0,0.40);
     height: 54px;
     width: 100vw;
     padding: 10px 15px;
@@ -28,7 +29,6 @@ nav {
         }
     }
     .boxMenu {
-      z-index: 11;
       max-height: 34px;
       width: auto;
       height: 100%;
@@ -63,6 +63,10 @@ nav {
   @keyframes slideInFromTop {
     0% {
       transform: translateY(-100%);
+      opacity: 0.0;
+    }
+    25% {
+      transform: translateY(-100%);
       opacity: 0.25;
     }
     100% {
@@ -73,15 +77,15 @@ nav {
 
   @keyframes slideInFromRight {
     0% {
-      // transform: translateX(+100%);
+      transform: translateX(100%);
       opacity: 0;
     }
-    25% {
-      // transform: translateX(+100%);
+    50% {
+      transform: translateX(100%);
       opacity: 0;
     }
     100% {
-      // transform: translateX(0);
+      transform: translateX(0);
       opacity: 1;
     }
   }
@@ -98,7 +102,7 @@ nav {
       background-color: $colorNavBackground;
       will-change: position;
       position: fixed;
-      animation: 1.5s ease-out 0s 1 slideInFromTop;
+      animation: 2.5s ease-out 0s 1 slideInFromTop;
       z-index: 10;
       top: 0px;
       left: 20px;
@@ -106,6 +110,7 @@ nav {
       min-height: 75px;
       width: 250px;
       padding: 10px 15px;
+      border-radius: 0 0 $navBoxCornerRadius $navBoxCornerRadius;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -125,15 +130,17 @@ nav {
     }
     .rightBox {
       opacity: 1;
+      box-shadow: 2.5px 0 15px 5px rgba(0,0,0,0.40);
       background-color: $colorNavBackground;
       position: fixed;
       will-change: transform;
-      animation: 2.5s ease-out 0s 1 slideInFromRight;
+      animation: 5s ease-out 0s 1 slideInFromRight;
       z-index: 10;
       top: 20px;
       right: 0;
       @include flexRowEnd();
       padding: 10px 0px 10px 10px;
+      border-radius: $navBoxCornerRadius 0 0 $navBoxCornerRadius;
       .navIcon {
         border: $devBorder solid lime;
         display: flex;

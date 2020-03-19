@@ -12,12 +12,22 @@ $mediaHeight2: 900px;
 $mediaHeight3: 1200px;
 
 $colorBackground: black;
-$colorNavBackground: rgba(68,68,68,0.85);
+$colorNavBackground: rgba(68,68,68,0.95);
 $colorNavBackgroundSolid: rgba(68,68,68,1);
-$colorTextBoxBackground: rgba(68,68,68,0.85);
-$colorLabelBackground: rgba(68,68,68,0.75);
+$colorTextBoxBackground: rgba(68,68,68,0.95);
+$colorLabelBackground: rgba(68,68,68,0.95);
+$colorNavBackground: black;
+$colorNavBackgroundSolid: black;
+$colorTextBoxBackground: black;
+$colorLabelBackground: black;
+$colorNavBackground: rgba(45,45,45,0.95);
+$colorNavBackgroundSolid: rgba(45,45,45,1);
+$colorTextBoxBackground: rgba(45,45,45,0.95);
+$colorLabelBackground: rgba(45,45,45,0.95);
+$boxShadow: '0 -2.5px 10px 5px rgba(0,0,0,0.5)';
 
 $navHeight: 70px;
+$navBoxCornerRadius: 12.5px;
 $navPaddingTB: 5px;
 $navPaddingLR: 5px;
 
@@ -59,6 +69,7 @@ $textDim: #999;
 $textDimmer: #333;
 
 $fontScreenReference: 73vh;
+$fontScreenReference: 60vh;
 $fontSize: ($fontScreenReference/45);
 $fontWeight: 300;
 $fontSizeNormal: 1em;

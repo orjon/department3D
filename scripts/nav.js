@@ -20,7 +20,7 @@ $(() => {
   const $contactPage = $('#contact')
 
   const textBoxMinWidth = 45
-  const textBoxMaxWidth = 75
+  const textBoxMaxWidth = 70
   const textBoxPadding = 5
 
   const $visualisationTextBox = $('#visualisationTextBox')
@@ -44,7 +44,6 @@ $(() => {
     orientation = checkOrientation()
     if (!oldOrientation === orientation){
     } else {
-      // console.log(orientation)
       setOrienation()
     }
   }
@@ -62,7 +61,6 @@ $(() => {
       $visualisationSlidesLandscape.addClass('hiddenOrientation')
       $eventsSlidesLandscape.addClass('hiddenOrientation')
       $designSlidesLandscape.addClass('hiddenOrientation')
-            
       $visualisationSlidesPortrait.removeClass('hiddenOrientation')
       $eventsSlidesPortrait.removeClass('hiddenOrientation')
       $designSlidesPortrait.removeClass('hiddenOrientation')
@@ -70,40 +68,29 @@ $(() => {
       $visualisationSlidesLandscape.removeClass('hiddenOrientation')
       $eventsSlidesLandscape.removeClass('hiddenOrientation')
       $designSlidesLandscape.removeClass('hiddenOrientation')
-
       $visualisationSlidesPortrait.addClass('hiddenOrientation')
       $eventsSlidesPortrait.addClass('hiddenOrientation')
       $designSlidesPortrait.addClass('hiddenOrientation')
     }
   }
 
-
-  
-
-  function textBoxPosition() {
+  function textBoxPositions() {
+    let textBoxes = [$visualisationTextBox, $eventsTextBox,$designTextBox]
     if ($(window).width() > 800) {
       textBoxWidth = (textBoxMinWidth + Math.floor(Math.random() * (textBoxMaxWidth-textBoxMinWidth))+1)
       textBoxXPosition = (textBoxPadding + Math.floor(Math.random() * ((100-textBoxWidth-textBoxPadding)-textBoxPadding))+ 1)
-      textBoxYPosition = (textBoxPadding + Math.floor(Math.random() * (30-textBoxPadding))+ 1)
-      $visualisationTextBox.css({width:`${textBoxWidth}vw`, left: `${textBoxXPosition}vw`,bottom: `${textBoxYPosition}vh`})
-      textBoxWidth = (textBoxMinWidth + Math.floor(Math.random() * (textBoxMaxWidth-textBoxMinWidth))+1)
-      textBoxXPosition = (textBoxPadding + Math.floor(Math.random() * ((100-textBoxWidth-textBoxPadding)-textBoxPadding))+ 1)
-      textBoxYPosition = (textBoxPadding + Math.floor(Math.random() * (40-textBoxPadding))+ 1)
-      $designTextBox.css({width:`${textBoxWidth}vw`, left: `${textBoxXPosition}vw`,bottom: `${textBoxYPosition}vh`})
+      textBoxYPosition = (textBoxPadding + Math.floor(Math.random() * (10-textBoxPadding))+ 1)
+      for (let i=0; i<textBoxes.length; i++){
+        textBoxes[i].css({width:`${textBoxWidth}vw`, left: `${textBoxXPosition}vw`,bottom: `${textBoxYPosition}vh`})
+      }
     }
-    // Hide Textbox after X secs
-    // setTimeout(function() {
-    //   $visualisationTextBox.addClass('hidden')
-    //   $designTextBox.addClass('hidden')
-    // }, 6000)
   }
 
   $(window).resize(function() {
-    textBoxPosition()
+    textBoxPositions()
   })
 
-  textBoxPosition()
-
+  textBoxPositions()
 
   $visualisationTextBox.mousedown(function() {
     $visualisationTextBox.addClass('hidden')
@@ -197,9 +184,9 @@ $(() => {
 
     icon.addEventListener('mousedown', (e) => {
       resetNavIcons()
-      textBoxPosition()
       resetMenu()
       hideSections()
+      textBoxPositions()
       if ($(e.target).hasClass('visualisation')) {
         $visualisationSlidesPortrait.attr('class','slideSet visible')
         $visualisationSlidesLandscape.attr('class','slideSet visible')

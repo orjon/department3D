@@ -53,14 +53,15 @@
 }
 
 nav {
-  background-color: rgba(68, 68, 68, 0.85);
+  background-color: rgba(45, 45, 45, 0.95);
   font-size: 10px;
   font-weight: 100;
   color: white;
 }
 nav .leftBox {
-  opacity: 1;
-  background-color: #444444;
+  z-index: 0;
+  background-color: #2d2d2d;
+  box-shadow: 0 -2.5px 15px 5px rgba(0, 0, 0, 0.4);
   height: 54px;
   width: 100vw;
   padding: 10px 15px;
@@ -80,7 +81,6 @@ nav .leftBox a .navLogo {
   height: auto;
 }
 nav .leftBox .boxMenu {
-  z-index: 11;
   max-height: 34px;
   width: auto;
   height: 100%;
@@ -88,7 +88,7 @@ nav .leftBox .boxMenu {
 }
 nav .rightBox {
   opacity: 0;
-  background-color: #444444;
+  background-color: #2d2d2d;
   position: fixed;
   z-index: 10;
   right: 0;
@@ -116,6 +116,10 @@ nav .rightBox.visible {
 @keyframes slideInFromTop {
   0% {
     transform: translateY(-100%);
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(-100%);
     opacity: 0.25;
   }
   100% {
@@ -125,12 +129,15 @@ nav .rightBox.visible {
 }
 @keyframes slideInFromRight {
   0% {
+    transform: translateX(100%);
     opacity: 0;
   }
-  25% {
+  50% {
+    transform: translateX(100%);
     opacity: 0;
   }
   100% {
+    transform: translateX(0);
     opacity: 1;
   }
 }
@@ -138,10 +145,10 @@ nav .rightBox.visible {
   nav .leftBox {
     will-change: opacity;
     opacity: 1;
-    background-color: rgba(68, 68, 68, 0.85);
+    background-color: rgba(45, 45, 45, 0.95);
     will-change: position;
     position: fixed;
-    animation: 1.5s ease-out 0s 1 slideInFromTop;
+    animation: 2.5s ease-out 0s 1 slideInFromTop;
     z-index: 10;
     top: 0px;
     left: 20px;
@@ -149,6 +156,7 @@ nav .rightBox.visible {
     min-height: 75px;
     width: 250px;
     padding: 10px 15px;
+    border-radius: 0 0 12.5px 12.5px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -168,10 +176,11 @@ nav .rightBox.visible {
   }
   nav .rightBox {
     opacity: 1;
-    background-color: rgba(68, 68, 68, 0.85);
+    box-shadow: 2.5px 0 15px 5px rgba(0, 0, 0, 0.4);
+    background-color: rgba(45, 45, 45, 0.95);
     position: fixed;
     will-change: transform;
-    animation: 2.5s ease-out 0s 1 slideInFromRight;
+    animation: 5s ease-out 0s 1 slideInFromRight;
     z-index: 10;
     top: 20px;
     right: 0;
@@ -180,6 +189,7 @@ nav .rightBox.visible {
     justify-content: flex-end;
     align-content: center;
     padding: 10px 0px 10px 10px;
+    border-radius: 12.5px 0 0 12.5px;
   }
   nav .rightBox .navIcon {
     border: 0px solid lime;
@@ -361,9 +371,6 @@ nav .rightBox.visible {
   align-items: center;
   position: relative;
 }
-.slideSet.visible .hiddenOrientation {
-  display: none;
-}
 .slideSet.visible img.slide {
   object-fit: cover;
   width: 100%;
@@ -374,13 +381,8 @@ nav .rightBox.visible {
   transition: opacity 3s;
 }
 .slideSet.visible img.slide.contained {
-  object-fit: cover;
+  object-fit: contain;
   position: absolute;
-}
-@media (min-width: 700px) {
-  .slideSet.visible img.slide.contained {
-    object-fit: contain;
-  }
 }
 .slideSet.visible img.slide.p {
   width: 100%;
@@ -396,7 +398,7 @@ nav .rightBox.visible {
 .slideSet.visible .slideShowButton {
   width: 40px;
   height: 40px;
-  background: rgba(68, 68, 68, 0.85);
+  background: rgba(45, 45, 45, 0.95);
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -422,12 +424,12 @@ nav .rightBox.visible {
   transition: opacity 1s;
   position: fixed;
   bottom: 25px;
-  background-color: rgba(68, 68, 68, 0.85);
+  background-color: rgba(45, 45, 45, 0.95);
   width: 90vw;
   padding: 18px;
   padding-top: 8px;
   color: white;
-  font-size: 20pt;
+  font-size: 16pt;
   text-align: justify-content;
 }
 #visualisationTextBox p,
@@ -454,12 +456,12 @@ nav .rightBox.visible {
     position: fixed;
     bottom: 15%;
     left: 12.5%;
-    background-color: rgba(68, 68, 68, 0.85);
+    background-color: rgba(45, 45, 45, 0.95);
     width: 80vw;
     padding: 18px;
     padding-top: 8px;
     color: white;
-    font-size: 25pt;
+    font-size: 20pt;
     text-align: justify-content;
   }
   #visualisationTextBox p,
@@ -474,12 +476,6 @@ nav .rightBox.visible {
     display: none;
   }
 }
-#visualisationTextBox.hidden,
-#eventsTextBox.hidden,
-#designTextBox.hidden {
-  display: none;
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -524,7 +520,7 @@ footer #siteVersion {
   bottom: 0.5%;
   right: 0.5%;
   font-family: sans-serif;
-  font-size: 1.6222222222vh;
+  font-size: 1.3333333333vh;
   display: none;
 }
 footer #siteVersion a {
