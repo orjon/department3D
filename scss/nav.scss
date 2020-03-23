@@ -1,6 +1,12 @@
 $mediaWidth1: 800px;
 $mediaWidth2: 700px;
 
+.navIconPreload {
+  width: 0px;
+  height: 0px;
+}
+
+
 // Media width < $mediaWidth2
 nav {
   background-color: $colorNavBackground;
@@ -39,6 +45,7 @@ nav {
   .rightBox {
     opacity: 0;
     background-color: $colorNavBackgroundSolid;
+    border-radius: 0 0 $navBoxCornerRadius $navBoxCornerRadius;
     position: fixed;
     z-index: 10;
     right: 0;

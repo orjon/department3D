@@ -84,6 +84,11 @@ $(() => {
         textBoxes[i].css({width:`${textBoxWidth}vw`, left: `${textBoxXPosition}vw`,bottom: `${textBoxYPosition}vh`})
       }
     }
+    // Hide Textbox after X secs
+    // setTimeout(function() {
+    //   visualisationTextBox.classList.add('hidden')
+    //   designTextBox.classList.add('hidden')
+    // }, 6000)
   }
 
   $(window).resize(function() {
