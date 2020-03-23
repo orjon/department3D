@@ -12,10 +12,11 @@ $mediaHeight2: 900px;
 $mediaHeight3: 1200px;
 
 $colorBackground: black;
-$colorNavBackground: rgba(68,68,68,0.95);
-$colorNavBackgroundSolid: rgba(68,68,68,1);
-$colorTextBoxBackground: rgba(68,68,68,0.95);
-$colorLabelBackground: rgba(68,68,68,0.95);
+$colorMain: 68;
+$colorNavBackground: rgba($colorMain,$colorMain,$colorMain,0.95);
+$colorNavBackgroundSolid: rgba($colorMain,$colorMain,$colorMain,1);
+$colorTextBoxBackground: rgba($colorMain,$colorMain,$colorMain,0.95);
+$colorLabelBackground: rgba($colorMain,$colorMain,$colorMain,0.95);
 // $colorNavBackground: black;
 // $colorNavBackgroundSolid: black;
 // $colorTextBoxBackground: black;
@@ -24,7 +25,9 @@ $colorLabelBackground: rgba(68,68,68,0.95);
 // $colorNavBackgroundSolid: rgba(45,45,45,1);
 // $colorTextBoxBackground: rgba(45,45,45,0.95);
 // $colorLabelBackground: rgba(45,45,45,0.95);
-$boxShadow: '0 -2.5px 10px 5px rgba(0,0,0,0.5)';
+$boxShadowBlur: 10px;
+$boxShadowSpread: 0px;
+$boxShadow: 0 0 $boxShadowBlur $boxShadowSpread rgba($colorMain,$colorMain,$colorMain,0.5);
 
 $navHeight: 70px;
 $navBoxCornerRadius: 12.5px;

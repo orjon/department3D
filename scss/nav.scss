@@ -16,7 +16,7 @@ nav {
   .leftBox {
     z-index: 0;
     background-color: $colorNavBackgroundSolid;
-    box-shadow: 0 -2.5px 5px 5px rgba(68,68,68,0.40);
+    box-shadow: $boxShadow;
     height: 54px;
     width: 100vw;
     padding: 10px 15px;
@@ -137,7 +137,7 @@ nav {
     }
     .rightBox {
       opacity: 1;
-      box-shadow: 2.5px 0 5px 5px rgba(68,68,68,0.40);
+      box-shadow: $boxShadow;
       background-color: $colorNavBackground;
       position: fixed;
       will-change: transform;
