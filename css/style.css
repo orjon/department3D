@@ -89,7 +89,7 @@ nav .leftBox .boxMenu {
   max-height: 34px;
   width: auto;
   height: 100%;
-  border: 0px solid orange;
+  border: 1px solid orange;
 }
 nav .rightBox {
   opacity: 0;
@@ -106,14 +106,14 @@ nav .rightBox {
   display: none;
 }
 nav .rightBox .navIcon {
-  border: 0px solid green;
+  border: 1px solid green;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
   width: 50px;
-  border: 0px solid orange;
+  border: 1px solid orange;
 }
 nav .rightBox.visible {
   opacity: 1;
@@ -198,13 +198,13 @@ nav .rightBox.visible {
     border-radius: 12.5px 0 0 12.5px;
   }
   nav .rightBox .navIcon {
-    border: 0px solid lime;
+    border: 1px solid lime;
     display: flex;
     flex-direction: column;
     margin-top: 0;
     margin-right: 20px;
     width: 50px;
-    border: 0px solid orange;
+    border: 1px solid orange;
   }
 }
 
@@ -215,7 +215,7 @@ nav .rightBox.visible {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 0px solid red;
+  border: 1px solid red;
 }
 
 .logoImage {
@@ -226,13 +226,13 @@ nav .rightBox.visible {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  border: 0px solid cyan;
+  border: 1px solid cyan;
 }
 
 .navArrows.landscape .navArrow {
   height: 5vh;
   height: 40px;
-  border: 0px solid cyan;
+  border: 1px solid cyan;
   will-change: opacity;
   opacity: 0.25;
   transition-timing-function: ease-in;
@@ -258,7 +258,7 @@ nav .rightBox.visible {
   transform: translate(0%, -50%);
 }
 .navArrows.landscape .navPlayPause {
-  border: 0px solid pink;
+  border: 1px solid pink;
   position: fixed;
   top: 92%;
   right: 2vw;
@@ -266,10 +266,10 @@ nav .rightBox.visible {
 }
 .navArrows.landscape .navPlayPause img {
   height: 30px;
-  border: 0px solid red;
+  border: 1px solid red;
 }
 .navArrows.landscape .navPlayPause .autoPlay {
-  border: 0px solid cyan;
+  border: 1px solid cyan;
   will-change: opacity;
   opacity: 0.25;
   transition-timing-function: ease-in;
@@ -290,26 +290,26 @@ nav .rightBox.visible {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 0px solid green;
+  border: 1px solid green;
   color: #333;
   font-family: "Montserrat", monospace;
 }
 .bottom .description {
-  border: 0px solid pink;
+  border: 1px solid pink;
   font-size: 17px;
   text-align: center;
 }
 .bottom .description .descriptionText {
   font-size: 1em;
   padding-top: 0.25em;
-  border: 0px solid pink;
+  border: 1px solid pink;
 }
 .bottom .description .descriptionTech {
   font-family: sans-serif;
   font-size: 0.9em;
   padding-top: 0.25em;
   color: #999;
-  border: 0px solid pink;
+  border: 1px solid pink;
 }
 .bottom .hidden {
   display: none;
@@ -317,22 +317,22 @@ nav .rightBox.visible {
 .bottom .navArrows.portrait {
   padding-bottom: 1.5%;
   width: 100%;
-  border: 0px solid orange;
+  border: 1px solid orange;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 .bottom .navArrows.portrait .navPlayPause {
-  border: 0px solid pink;
+  border: 1px solid pink;
   padding-top: 0.55em;
 }
 .bottom .navArrows.portrait .navPlayPause img {
   height: 50px;
-  border: 0px solid red;
+  border: 1px solid red;
 }
 .bottom .navArrows.portrait .navPlayPause .autoPlay {
-  border: 0px solid cyan;
+  border: 1px solid cyan;
   will-change: opacity;
   opacity: 0.25;
   transition-timing-function: ease-in;
@@ -348,7 +348,7 @@ nav .rightBox.visible {
 .bottom .navArrows.portrait .navArrow {
   margin: 0.55em 5%;
   height: 30px;
-  border: 0px solid cyan;
+  border: 1px solid cyan;
   will-change: opacity;
   opacity: 0.25;
   transition-timing-function: ease-in;
@@ -408,7 +408,7 @@ nav .rightBox.visible {
   position: fixed;
   bottom: 10px;
   right: 10px;
-  border: 0px solid orange;
+  border: 1px solid orange;
 }
 .slideSet.visible .playPause {
   width: 90%;
@@ -416,7 +416,7 @@ nav .rightBox.visible {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 0px solid red;
+  border: 1px solid red;
   mix-blend-mode: color-dodge;
 }
 
@@ -575,7 +575,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 0px solid blue;
+  border: 1px solid blue;
 }
 #screenContainer .content {
   width: 100%;
