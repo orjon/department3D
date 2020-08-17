@@ -38,9 +38,6 @@ body {
     height: 100%;
     @include flexColumnCenter;
     border: $devBorder solid blue;
-    nav {
-      // border: $devBorder solid blue;
-    }
 
     .content {
       width: 100%;

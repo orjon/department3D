@@ -2,8 +2,8 @@
 $(() => {
 
   let orientation = undefined
-  // const currentPage = document.querySelector('.navText').innerHTML
   const navIcons = document.querySelectorAll('.navIcon')
+  const socialMediaIcons = document.querySelectorAll('.socialMediaIcon')
   const $boxMenu = $('.boxMenu')
   const iconMenu = $('.rightBox')
 
@@ -224,6 +224,7 @@ $(() => {
     })
 
   })
+
 
   function resetNavIcons() {
     navIcons.forEach(icon => {
