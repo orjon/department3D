@@ -80,6 +80,7 @@ nav {
     @include flexRowCenter();
     padding: 0 10px 10px 10px;
     display: flex;
+    
 
     .socialMediaIcon {
       &:first-child {
@@ -88,15 +89,14 @@ nav {
       &:hover {
         opacity: 1;
       }
+      border-radius: 50%;
+      box-shadow: $boxShadow;
       opacity: 0.7;
       border: $devBorder solid green;
       @include flexColumnCenter();
       margin-top: 10px;
       width: $navIconWidth;
       border: $devBorder solid orange;
-      color: #f00;
-      -webkit-filter: invert(100%);
-      filter: invert(100%);
     }
   }
 

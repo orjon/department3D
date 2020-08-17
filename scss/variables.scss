@@ -28,6 +28,7 @@ $colorLabelBackground: rgba($colorMain,$colorMain,$colorMain,0.95);
 $boxShadowBlur: 10px;
 $boxShadowSpread: 0px;
 $boxShadow: 0 0 $boxShadowBlur $boxShadowSpread rgba($colorMain,$colorMain,$colorMain,0.5);
+$boxShadow2: 0 0 $boxShadowBlur $boxShadowSpread rgba(red,1);
 
 $navHeight: 70px;
 $navBoxCornerRadius: 12.5px;
