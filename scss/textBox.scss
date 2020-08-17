@@ -12,10 +12,13 @@ $textBoxPaddingTop: ($textBoxPadding - 7px);
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
   position: fixed;
-  bottom: 25px;
+  bottom: 75px;
   background-color: $colorTextBoxBackground;
-  width: 90vw;
+  // width÷: 100%;
+
   padding: $textBoxPadding;
+  margin-left: 20px;
+  margin-right: 20px;
   padding-top: $textBoxPaddingTop;
   color: white;
   font-size: 20pt;

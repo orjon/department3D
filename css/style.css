@@ -468,10 +468,11 @@ nav .socialLinks .socialMediaIcon:hover {
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
   position: fixed;
-  bottom: 25px;
+  bottom: 75px;
   background-color: rgba(68, 68, 68, 0.95);
-  width: 90vw;
   padding: 18px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding-top: 11px;
   color: white;
   font-size: 20pt;
