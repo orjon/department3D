@@ -3,9 +3,8 @@ $(() => {
 
   let orientation = undefined
   const navIcons = document.querySelectorAll('.navIcon')
-  const socialMediaIcons = document.querySelectorAll('.socialMediaIcon')
   const $boxMenu = $('.boxMenu')
-  const iconMenu = $('.rightBox')
+  const $iconMenu = $('.rightBox')
 
   const iconVisualisation = document.querySelector('.navIcon.visualisation')
   const iconDesign = document.querySelector('.navIcon.design')
@@ -131,8 +130,8 @@ $(() => {
 
 
   function toggleMenu() {
-    iconMenu.toggleClass('visible')
-    if (iconMenu.hasClass('visible')) {
+    $iconMenu.toggleClass('visible')
+    if ($iconMenu.hasClass('visible')) {
       $(this).attr('src', './images/icons/box-open.png')
       $boxMenu.attr('src', './images/icons/box-open.png')
       $boxMenu.removeClass('closed')
@@ -145,7 +144,7 @@ $(() => {
 
   function resetMenu() {
     toggleMenu()
-    if (iconMenu.hasClass('visible')) {
+    if ($iconMenu.hasClass('visible')) {
       $(this).attr('src', './images/icons/box-open.png')
     } else {
       $(this).attr('src', './images/icons/box-closed.png')

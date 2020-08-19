@@ -1,11 +1,20 @@
 window.addEventListener('DOMContentLoaded', () => {
 
+  const $socialLinks = $('#socialLinks')
+  checkInstagram()
+
   window.onload = function (){
     checkWindowSize()
   }
 
   window.onresize = function(){
     checkWindowSize()
+  }
+
+  function checkInstagram() {
+    var ua = navigator.userAgent || navigator.vendor || window.opera;
+    var isInstagram = (ua.indexOf('Instagram') > -1) ? true : false;
+    isInstagram ? $socialLinks.attr( 'class', 'hidden') : $socialLinks.attr( 'class', '');
   }
 
   function checkWindowSize(){

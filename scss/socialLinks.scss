@@ -1,5 +1,8 @@
-
-.socialLinks {
+#socialLinks {
+  // Add hidden is instagram in App browser detected - not displaying properly!!
+  &.hidden {
+    display: none;
+  }
   border: $devBorder solid pink;
   animation: 8s ease-out 0s 1 fadeIn;
   position: fixed;
@@ -37,36 +40,18 @@
     width: $navIconWidth;
     border: $devBorder solid orange;
   }
-}
 
-
-// a {
-//   width: 100%;
-//   border: $devBorder solid cyan;
-//   color: $textDimmer;
-//   text-decoration: none;
-//   font-family: sans-serif;
-//   transition-timing-function: ease-in;
-//   -webkit-transition: color 1s; /* For Safari 3.1 to 6.0 */
-//   transition: color 1s;
-// }
-// a:hover {
-//   color: $textBright;
-//   transition-timing-function: ease-out;
-//   -webkit-transition: color .1s; /* For Safari 3.1 to 6.0 */
-//   transition: color .1s;
-//   text-decoration: none;
-// }
-
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
+
+
