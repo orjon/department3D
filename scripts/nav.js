@@ -33,7 +33,8 @@ $(() => {
   let textBoxYPosition = undefined
 
   window.onload = function (){
-    console.log('department3D v1.2')
+    console.log('department3D v1.3')
+    console.log('design & build: orjon.com')
     orientation = checkOrientation()
     console.log(orientation)
     setOrienation()
