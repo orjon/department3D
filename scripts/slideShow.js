@@ -9,7 +9,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const $designSlidesLandscape = $('#designSlidesLandscape > .slide')
   const $designSlidesPortrait = $('#designSlidesPortrait > .slide')
 
-  // const $printSlides = $('#printSlides > .slide')
+  const $printSlidesLandscape = $('#printSlidesLandscape > .slide')
+  const $printSlidesPortrait = $('#printSlidesPortrait > .slide')
+
 
   const slidesAll = [
     $visualisationSlidesLandscape,
@@ -18,6 +20,8 @@ window.addEventListener('DOMContentLoaded', () => {
     $eventsSlidesPortrait,
     $designSlidesLandscape,
     $designSlidesPortrait,
+    $printSlidesLandscape,
+    $printSlidesPortrait,
   ]
 
 

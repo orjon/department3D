@@ -6,16 +6,14 @@ $(() => {
   const $boxMenu = $('.boxMenu')
   const $iconMenu = $('.rightBox')
 
-  const iconVisualisation = document.querySelector('.navIcon.visualisation')
-  const iconDesign = document.querySelector('.navIcon.design')
-  const iconContact = document.querySelector('.navIcon.contact')
-
   const $visualisationSlidesLandscape = $('#visualisationSlidesLandscape')
   const $visualisationSlidesPortrait = $('#visualisationSlidesPortrait')
   const $eventsSlidesLandscape = $('#eventsSlidesLandscape')
   const $eventsSlidesPortrait = $('#eventsSlidesPortrait')
   const $designSlidesLandscape = $('#designSlidesLandscape')
   const $designSlidesPortrait = $('#designSlidesPortrait')
+  const $printSlidesLandscape = $('#printSlidesLandscape')
+  const $printSlidesPortrait = $('#printSlidesPortrait')
   const $contactPage = $('#contact')
 
   const textBoxMinWidth = 45
@@ -61,16 +59,20 @@ $(() => {
       $visualisationSlidesLandscape.addClass('hiddenOrientation')
       $eventsSlidesLandscape.addClass('hiddenOrientation')
       $designSlidesLandscape.addClass('hiddenOrientation')
+      $printSlidesLandscape.addClass('hiddenOrientation')
       $visualisationSlidesPortrait.removeClass('hiddenOrientation')
       $eventsSlidesPortrait.removeClass('hiddenOrientation')
       $designSlidesPortrait.removeClass('hiddenOrientation')
+      $printSlidesPortrait.removeClass('hiddenOrientation')
     } else {
       $visualisationSlidesLandscape.removeClass('hiddenOrientation')
       $eventsSlidesLandscape.removeClass('hiddenOrientation')
       $designSlidesLandscape.removeClass('hiddenOrientation')
+      $printSlidesLandscape.removeClass('hiddenOrientation')
       $visualisationSlidesPortrait.addClass('hiddenOrientation')
       $eventsSlidesPortrait.addClass('hiddenOrientation')
       $designSlidesPortrait.addClass('hiddenOrientation')
+      $printSlidesPortrait.addClass('hiddenOrientation')
     }
   }
 
@@ -159,6 +161,8 @@ $(() => {
     $eventsSlidesLandscape.attr('class','slideSet hidden')
     $designSlidesPortrait.attr('class','slideSet hidden')
     $designSlidesLandscape.attr('class','slideSet hidden')
+    $printSlidesPortrait.attr('class','slideSet hidden')
+    $printSlidesLandscape.attr('class','slideSet hidden')
 
     $visualisationTextBox.addClass('hidden')
     $eventsTextBox.addClass('hidden')
@@ -209,6 +213,12 @@ $(() => {
         $designSlidesLandscape.attr('class','slideSet visible')
         $designTextBox.removeClass('hidden')
         $('.navIcon.design').addClass('current')
+
+      } else if ($(e.target).hasClass('print')) {
+        $printSlidesPortrait.attr('class','slideSet visible')
+        $printSlidesLandscape.attr('class','slideSet visible')
+        $printTextBox.removeClass('hidden')
+        $('.navIcon.print').addClass('current')
 
       } else if ($(e.target).hasClass('contact')) {
         document.querySelector('.leftBox').classList.add('contact')
