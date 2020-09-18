@@ -12,6 +12,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const $printSlidesLandscape = $('#printSlidesLandscape > .slide')
   const $printSlidesPortrait = $('#printSlidesPortrait > .slide')
 
+  const $allSlideSets = $('slideSet')
+
 
   const slidesAll = [
     $visualisationSlidesLandscape,
@@ -24,6 +26,12 @@ window.addEventListener('DOMContentLoaded', () => {
     $printSlidesPortrait,
   ]
 
+  function setBackground() {
+    var ua = navigator.userAgent || navigator.vendor || window.opera;
+    var isInstagram = (ua.indexOf('Instagram') > -1) ? true : false;
+    isInstagram ? $socialLinks.attr( 'class', 'hidden') : $socialLinks.attr( 'class', '');
+  }
+
 
   function incrementSlides(i, slideArray){
     slideArray[i].classList.remove('show')
@@ -31,7 +39,11 @@ window.addEventListener('DOMContentLoaded', () => {
       slideArray[0].className = 'slide show'
       i = - 1
     }
-    if (i > -1 ) {slideArray[i+1].classList.add('show')}
+  
+    if (i > -1 ) {
+      slideArray[i+1].classList.add('show')
+    }
+
     setTimeout(function() {
       incrementSlides(++i % slideArray.length, slideArray)
     }, 5000) // show each slide for 5 secs

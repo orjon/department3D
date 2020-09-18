@@ -1,9 +1,12 @@
 $textBoxPadding: 18px;
 $textBoxPaddingTop: ($textBoxPadding - 7px);
 
+$mediaWidth1: 800px;
+
 #visualisationTextBox,
 #eventsTextBox,
-#designTextBox {
+#designTextBox,
+#printTextBox {
   cursor: pointer;
   border-radius: $navBoxCornerRadius;
   box-shadow: $boxShadow;
@@ -14,7 +17,6 @@ $textBoxPaddingTop: ($textBoxPadding - 7px);
   position: fixed;
   bottom: 75px;
   background-color: $colorTextBoxBackground;
-
   padding: $textBoxPadding;
   margin-left: 20px;
   margin-right: 20px;
@@ -38,7 +40,8 @@ $textBoxPaddingTop: ($textBoxPadding - 7px);
 @media (min-width: $mediaWidth1) {
   #visualisationTextBox,
   #eventsTextBox,
-  #designTextBox {
+  #designTextBox,
+  #printTextBox {
     cursor: pointer;
     animation: 3s ease-out 0s 1 fadeIn;
     opacity: 1;
@@ -52,7 +55,7 @@ $textBoxPaddingTop: ($textBoxPadding - 7px);
     padding: $textBoxPadding;
     padding-top: $textBoxPaddingTop;
     color: white;
-    font-size: 25pt;
+    // font-size: 25pt;
     text-align: justify-content;
     p {
       border: 0px solid lightgrey;

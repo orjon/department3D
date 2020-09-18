@@ -432,6 +432,7 @@ nav .rightBox.visible {
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: black;
 }
 .slideSet.visible img.slide {
   object-fit: cover;
@@ -478,7 +479,8 @@ nav .rightBox.visible {
 
 #visualisationTextBox,
 #eventsTextBox,
-#designTextBox {
+#designTextBox,
+#printTextBox {
   cursor: pointer;
   border-radius: 12.5px;
   box-shadow: 0 0 10px 0px rgba(68, 68, 68, 0.5);
@@ -499,20 +501,23 @@ nav .rightBox.visible {
 }
 #visualisationTextBox p,
 #eventsTextBox p,
-#designTextBox p {
+#designTextBox p,
+#printTextBox p {
   border: 0px solid lightgrey;
   text-align: justify;
 }
 #visualisationTextBox .hidden,
 #eventsTextBox .hidden,
-#designTextBox .hidden {
+#designTextBox .hidden,
+#printTextBox .hidden {
   display: none;
 }
 
 @media (min-width: 800px) {
   #visualisationTextBox,
 #eventsTextBox,
-#designTextBox {
+#designTextBox,
+#printTextBox {
     cursor: pointer;
     animation: 3s ease-out 0s 1 fadeIn;
     opacity: 1;
@@ -526,18 +531,19 @@ nav .rightBox.visible {
     padding: 18px;
     padding-top: 11px;
     color: white;
-    font-size: 25pt;
     text-align: justify-content;
   }
   #visualisationTextBox p,
 #eventsTextBox p,
-#designTextBox p {
+#designTextBox p,
+#printTextBox p {
     border: 0px solid lightgrey;
     text-align: justify;
   }
   #visualisationTextBox .hidden,
 #eventsTextBox .hidden,
-#designTextBox .hidden {
+#designTextBox .hidden,
+#printTextBox .hidden {
     display: none;
   }
 }
